@@ -1,5 +1,7 @@
 .vscode/*
 bin/*
 obj/*
+PPDATA/*
 
+*.csprojAPPDATA
 *.exe
