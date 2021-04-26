@@ -5,3 +5,5 @@ PPDATA/*
 
 *.csprojAPPDATA
 *.exe
+*.csproj
+

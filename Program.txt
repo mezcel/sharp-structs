@@ -1,0 +1,66 @@
+﻿using System;
+using System.IO; // Environment
+using Microsoft.VisualBasic.FileIO; // TextFieldParser
+
+namespace sharp_structs {
+    class Program {
+		public static void GetOsInfo() {
+			Console.WriteLine( "Operation System Information" );
+            Console.WriteLine("Operating System Detaiils");
+            OperatingSystem os = Environment.OSVersion;
+            Console.WriteLine("OS Version: " + os.Version.ToString());
+            Console.WriteLine("OS Platoform: " + os.Platform.ToString());
+            Console.WriteLine("OS SP: " + os.ServicePack.ToString());
+            Console.WriteLine("OS Version String: " + os.VersionString.ToString());            
+
+            // Get Version details
+            Version ver = os.Version;
+            Console.WriteLine("Major version: " + ver.Major);
+            Console.WriteLine("Major Revision: " + ver.MajorRevision);
+            Console.WriteLine("Minor version: " + ver.Minor);
+            Console.WriteLine("Minor Revision: " + ver.MinorRevision);
+            Console.WriteLine("Build: " + ver.Build);
+		}
+
+		public static string CsvFilePath ( string csvFileName ) {
+			string currentDir, myOs, path;
+			
+            OperatingSystem os = Environment.OSVersion;
+			
+			currentDir = Directory.GetCurrentDirectory();
+            myOs = os.Platform.ToString();
+            
+            if ( myOs == "Unix" ) {
+				currentDir+= @"/database/csv/";
+			} else {
+				currentDir+= @"\database\csv\";
+			}
+			
+			path = currentDir + csvFileName;
+
+			return path;
+		}
+
+        static void Main(string[] args) {
+            Console.WriteLine("Hello World!");
+			
+			string path = CsvFilePath( "bead.csv" );
+            
+            using (TextFieldParser parser = new TextFieldParser( path )) {
+				
+				parser.TextFieldType = FieldType.Delimited;
+				parser.SetDelimiters(";");
+				
+				while (!parser.EndOfData) {
+					//Processing row
+					string[] fields = parser.ReadFields();
+					foreach (string field in fields)  {
+						//TODO: Process field
+						Console.WriteLine( field );
+					}
+				}
+			}
+
+        }
+    }
+}
