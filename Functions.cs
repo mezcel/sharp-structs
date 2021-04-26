@@ -81,6 +81,32 @@ namespace sharp_structs {
 				i++;
 			}
 		}
+
+		public static MyStructs.bead_t[] PopulateBeadClass( string path, int noRecords ) {
+			int csvLineCount, noRecord;
+			
+			string[] readText = File.ReadAllLines( path );
+
+			MyStructs.bead_t[] bead = new MyStructs.bead_t[noRecords];
+
+			csvLineCount = 0;
+			
+			foreach( string record in readText ) {
+				if ( csvLineCount > 0 ) {
+						
+					string[] fields = record.Split(';');
+					noRecord = csvLineCount - 1;
+
+					bead[noRecord].beadId = Int32.Parse( fields[0] );
+					bead[noRecord].beadType = fields[1];
+				}
+				
+				csvLineCount++;
+			}
+
+			return bead;
+		}
+
 	}
 		
 }

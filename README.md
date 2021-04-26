@@ -6,6 +6,30 @@ Based on the CSV ER Database from [printf-time.git](https://github.com/mezcel/pr
 
 ---
 
+## Terminal Projects
+
+```ps1
+## Init new project with auto generated hello-world demo
+dotnet new console
+
+## Run project
+dotnet run
+```
+
+Debian
+```bash
+## rm previous bulds and initialize with *.txt script *.cs
+./dotnet-new-console-debian.sh
+```
+
+Win10
+```bat
+:: rem previous bulds and initialize with *.txt script *.cs
+.\dotnet-new-console-win10.bat
+```
+
+---
+
 ## Dependencies
 
 ### .NET 5.0 (recommended)
@@ -26,15 +50,7 @@ Based on the CSV ER Database from [printf-time.git](https://github.com/mezcel/pr
 |[dotnet-sdk-3.1.408-win-x64.exe](https://download.visualstudio.microsoft.com/download/pr/fa20039c-5871-4597-8a7b-f0553a12edcc/4fb1cce6214049fe639dd230a9265133/dotnet-sdk-3.1.408-win-x64.exe)|[dotnet-sdk-3.1.408-win-x86.exe](https://download.visualstudio.microsoft.com/download/pr/d5821095-b8e2-47fd-b6a0-815beeefb0d4/f9b8a167f7e389b5e0207ada20caa1e9/dotnet-sdk-3.1.408-win-x86.exe)|
 |[windowsdesktop-runtime-3.1.14-win-x64.exe](https://download.visualstudio.microsoft.com/download/pr/88437980-f813-4a01-865c-f992ad4909bb/9a936984781f6ce3526ffc946267e0ea/windowsdesktop-runtime-3.1.14-win-x64.exe)|[windowsdesktop-runtime-3.1.14-win-x86.exe](https://download.visualstudio.microsoft.com/download/pr/f449f435-25d3-4d5c-ad14-0c84f5131dea/a597530464689595a430407e440787c4/windowsdesktop-runtime-3.1.14-win-x86.exe)|
 
-## Terminal Projects
-
-```ps1
-## Init new project with auto generated hello-world demo
-dotnet new console
-
-## Run project
-dotnet run
-```
+---
 
 ## Export as a packaged executable
 ```ps1
