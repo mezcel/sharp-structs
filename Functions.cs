@@ -271,10 +271,6 @@ namespace sharp_structs {
 	}
 
 	public class RosaryMethods {
-		public static DateTime ReturnToday() {
-			DateTime today = DateTime.Now;
-			return today;
-		}
 
 		public static string TodaysMysteryName() {
 			int todayIndex = (int)DateTime.Now.DayOfWeek;
@@ -297,6 +293,13 @@ namespace sharp_structs {
 			string mysteryName = ERClass.mystery_dbArray[todayIndex].mysteryName;
 
 			return mysteryName;
+		}
+	}
+
+	public class CalendarCalculations {
+		public static DateTime ReturnToday() {
+			DateTime today = DateTime.Now;
+			return today;
 		}
 	}
 }
