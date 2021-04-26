@@ -47,6 +47,16 @@ namespace sharp_structs {
             noFields = MyFunctions.FieldCount( MyFunctions.CsvFilePath ( "scripture.csv" ) ) ;
             Console.WriteLine( "ERClass.scripture_dbArray.Length\t" + ERClass.scripture_dbArray.Length + "\tnoFields " + noFields );
 
+            Console.WriteLine( "" );
+
+            DateTime today = DateTime.Now;
+            Console.WriteLine( "The day of the week for {0:d} is {1}.", today.DayOfWeek, today.DayOfWeek );
+            Console.WriteLine( "\t" + today.ToString("dddd, dd MMMM yyyy") );
+
+            string todaysMystery = RosaryMethods.TodaysMysteryName();
+            Console.WriteLine( "\tMystery of the day: " + todaysMystery );
+
+
         }
     }
 }
