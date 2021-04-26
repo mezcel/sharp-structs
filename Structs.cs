@@ -69,19 +69,6 @@ namespace sharp_structs {
 			public string scriptureText;
 		}
 
-		/* ER Database Struct: Scripture Rosary Database */
-		/*public struct rosary_db_t {
-			// one must know beforehand how big each array needs to be
-
-			rosaryBead_t rosaryBead_dbArray[317];
-			bead_t bead_dbArray[9];
-			book_t book_dbArray[17];
-			decade_t decade_dbArray[22];
-			message_t message_dbArray[22];
-			mystery_t mystery_dbArray[7];
-			prayer_t prayer_dbArray[11];
-			scripture_t scripture_dbArray[202];
-		}*/
 	}
 
 	public class ERClass {
