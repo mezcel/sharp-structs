@@ -277,8 +277,23 @@ namespace sharp_structs {
 		}
 
 		public static string TodaysMysteryName() {
-
 			int todayIndex = (int)DateTime.Now.DayOfWeek;
+
+			switch( todayIndex ) {
+				case 0 or 3:
+					todayIndex = 4;
+					break;
+				case 1 or 6:
+					todayIndex = 1;
+					break;
+				case 2 or 5:
+					todayIndex = 3;
+					break;
+				case 4:
+					todayIndex = 2;
+					break;
+
+			}
 			string mysteryName = ERClass.mystery_dbArray[todayIndex].mysteryName;
 
 			return mysteryName;
