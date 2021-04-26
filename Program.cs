@@ -6,6 +6,8 @@ namespace sharp_structs {
 		
         static void Main(string[] args) {
             Console.Clear();
+            
+            MyFunctions.GetOsInfo();
 			
 			string path = MyFunctions.CsvFilePath( "bead.csv" );
 			
@@ -17,6 +19,8 @@ namespace sharp_structs {
             foreach( MyStructs.bead_t bead_t in bead ){
                 Console.WriteLine( "bead_t.beadId = " + bead_t.beadId + ", bead_t.beadType = " + bead_t.beadType );
             }
+
+            Console.WriteLine(bead[3].beadType);
 
         }
     }

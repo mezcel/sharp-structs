@@ -1,28 +1,29 @@
 using System;
 using System.IO; // Environment
-using System.Text; // ReadAllLines
-using Microsoft.VisualBasic.FileIO; // TextFieldParser
 
 namespace sharp_structs {
 
 	public class MyFunctions {
 		
 		public static void GetOsInfo() {
-			Console.WriteLine( "Operation System Information" );
-            Console.WriteLine("Operating System Detaiils");
             OperatingSystem os = Environment.OSVersion;
-            Console.WriteLine("OS Version: " + os.Version.ToString());
-            Console.WriteLine("OS Platoform: " + os.Platform.ToString());
-            Console.WriteLine("OS SP: " + os.ServicePack.ToString());
-            Console.WriteLine("OS Version String: " + os.VersionString.ToString());            
+
+			Console.WriteLine( "Operation System Information" );
+            Console.WriteLine("\tOS Version:   " + os.Version.ToString());
+            Console.WriteLine("\tOS Platoform: " + os.Platform.ToString());
+            Console.WriteLine("\tOS SP:        " + os.ServicePack.ToString());
+            Console.WriteLine("\tOS Version String: " + os.VersionString.ToString());            
 
             // Get Version details
             Version ver = os.Version;
-            Console.WriteLine("Major version: " + ver.Major);
-            Console.WriteLine("Major Revision: " + ver.MajorRevision);
-            Console.WriteLine("Minor version: " + ver.Minor);
-            Console.WriteLine("Minor Revision: " + ver.MinorRevision);
-            Console.WriteLine("Build: " + ver.Build);
+
+            Console.WriteLine("Operating System Detaiils");
+            Console.WriteLine("\tMajor version:  " + ver.Major);
+            Console.WriteLine("\tMajor Revision: " + ver.MajorRevision);
+            Console.WriteLine("\tMinor version:  " + ver.Minor);
+            Console.WriteLine("\tMinor Revision: " + ver.MinorRevision);
+            Console.WriteLine("\tBuild:          " + ver.Build);
+			Console.WriteLine("");
 		}
 
 		public static string CsvFilePath ( string csvFileName ) {

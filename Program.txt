@@ -5,15 +5,22 @@ namespace sharp_structs {
     class Program {
 		
         static void Main(string[] args) {
-            //Console.Clear();
+            Console.Clear();
+            
+            MyFunctions.GetOsInfo();
 			
 			string path = MyFunctions.CsvFilePath( "bead.csv" );
-
-			//bead_t[] beadStruct = new bead_t[8];
-
-			int recordCount = MyFunctions.RecordCount( path );
 			
-			MyFunctions.ParseCsvDemo( path );
+			//MyFunctions.ParseCsvDemo( path );
+
+            int noRecords = MyFunctions.RecordCount( path ) - 1;
+            MyStructs.bead_t[] bead = MyFunctions.PopulateBeadClass( path, noRecords );
+
+            foreach( MyStructs.bead_t bead_t in bead ){
+                Console.WriteLine( "bead_t.beadId = " + bead_t.beadId + ", bead_t.beadType = " + bead_t.beadType );
+            }
+
+            Console.WriteLine(bead[3].beadType);
 
         }
     }
