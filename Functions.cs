@@ -56,6 +56,17 @@ namespace sharp_structs {
 			return count;
 		}
 
+		public static int FieldCount( string path ) {
+			int count = 0;
+
+			string[] readText = File.ReadAllLines(path);
+			string[] fields = readText[0].Split(';');
+
+			count = fields.Length;
+
+			return count;
+		}
+
 		public static void PopulateRosaryBeadClass( string path, int noRecords ) {
 			int csvLineCount, noRecord;
 			string[] readText = File.ReadAllLines( path );
