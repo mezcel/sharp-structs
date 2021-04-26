@@ -7,3 +7,5 @@ PPDATA/*
 *.exe
 *.csproj
 
+#Program.cs
+

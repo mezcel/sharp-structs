@@ -50,6 +50,8 @@ function run {
 	isDotNet=$?
 
 	if [ $isDotNet -eq 0 ]; then
+		echo "Init dotnet project ..."
+		
 		## clear previous builds
 		rm -rf bin
 		rm -rf obj
@@ -58,7 +60,7 @@ function run {
 		sleep 2
 
 		## init new dotnet project
-		dotnet new console
+		dotnet new console --force
 
 		sleep 2
 
@@ -75,6 +77,7 @@ function run {
 
 }
 
+run
 
 
 
