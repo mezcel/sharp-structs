@@ -20,32 +20,32 @@ namespace sharp_structs {
             int noFields;
 
             Console.WriteLine( "\n# Demo: Preview DB class size and attribute count\n" );
-            Console.WriteLine( " class                           \trecords\tfields" );
-            Console.WriteLine( " --------------------------------\t---\t-----------" );
+            Console.WriteLine( " class array              \trecords\tfields" );
+            Console.WriteLine( " -------------------------\t-------\t------" );
 
             noFields = MyFunctions.FieldCount( MyFunctions.CsvFilePath ( "rosaryBead.csv" ) ) ;
-            Console.WriteLine( " ERClass.rosaryBead_dbArray.Length\t" + ERClass.rosaryBead_dbArray.Length + "\tnoFields " + noFields);
+            Console.WriteLine( " ERClass.rosaryBead_dbArray\t" + ERClass.rosaryBead_dbArray.Length + "\t " + noFields );
 
             noFields = MyFunctions.FieldCount( MyFunctions.CsvFilePath ( "bead.csv" ) ) ;
-            Console.WriteLine( " ERClass.bead_dbArray.Length\t\t" + ERClass.bead_dbArray.Length + "\tnoFields " + noFields );
+            Console.WriteLine( " ERClass.bead_dbArray\t\t" + ERClass.bead_dbArray.Length + "\t " + noFields );
 
             noFields = MyFunctions.FieldCount( MyFunctions.CsvFilePath ( "book.csv" ) ) ;
-            Console.WriteLine( " ERClass.book_dbArray.Length\t\t" + ERClass.book_dbArray.Length + "\tnoFields " + noFields );
+            Console.WriteLine( " ERClass.book_dbArray\t\t" + ERClass.book_dbArray.Length + "\t " + noFields );
 
             noFields = MyFunctions.FieldCount( MyFunctions.CsvFilePath ( "decade.csv" ) ) ;
-            Console.WriteLine( " ERClass.decade_dbArray.Length\t\t" + ERClass.decade_dbArray.Length + "\tnoFields " + noFields );
+            Console.WriteLine( " ERClass.decade_dbArray\t\t" + ERClass.decade_dbArray.Length + "\t " + noFields );
 
             noFields = MyFunctions.FieldCount( MyFunctions.CsvFilePath ( "message.csv" ) ) ;
-            Console.WriteLine( " ERClass.message_dbArray.Length\t\t" + ERClass.message_dbArray.Length + "\tnoFields " + noFields );
+            Console.WriteLine( " ERClass.message_dbArray\t" + ERClass.message_dbArray.Length + "\t " + noFields );
 
             noFields = MyFunctions.FieldCount( MyFunctions.CsvFilePath ( "mystery.csv" ) ) ;
-            Console.WriteLine( " ERClass.mystery_dbArray.Length\t\t" + ERClass.mystery_dbArray.Length + "\tnoFields " + noFields );
+            Console.WriteLine( " ERClass.mystery_dbArray\t" + ERClass.mystery_dbArray.Length + "\t " + noFields );
 
             noFields = MyFunctions.FieldCount( MyFunctions.CsvFilePath ( "prayer.csv" ) ) ;
-            Console.WriteLine( " ERClass.prayer_dbArray.Length\t\t" + ERClass.prayer_dbArray.Length + "\tnoFields " + noFields );
+            Console.WriteLine( " ERClass.prayer_dbArray\t\t" + ERClass.prayer_dbArray.Length + "\t " + noFields );
 
             noFields = MyFunctions.FieldCount( MyFunctions.CsvFilePath ( "scripture.csv" ) ) ;
-            Console.WriteLine( " ERClass.scripture_dbArray.Length\t" + ERClass.scripture_dbArray.Length + "\tnoFields " + noFields );
+            Console.WriteLine( " ERClass.scripture_dbArray\t" + ERClass.scripture_dbArray.Length + "\t " + noFields );
 
         }
 
@@ -58,7 +58,7 @@ namespace sharp_structs {
             Console.WriteLine( "\t" + today.ToString("dddd, dd MMMM yyyy") );
 
             string todaysMystery = RosaryMethods.TodaysMysteryName();
-            Console.WriteLine( "\t Mystery of the day: " + todaysMystery );
+            Console.WriteLine( "\tMystery of the day: " + todaysMystery );
 
         }
 
