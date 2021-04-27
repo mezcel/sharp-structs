@@ -73,13 +73,20 @@ namespace sharp_structs {
 
 	public class ERClass {
 
-		public static MyStructs.rosaryBead_t[] rosaryBead_dbArray = new MyStructs.rosaryBead_t[ MyFunctions.RecordCount( MyFunctions.CsvFilePath( "rosaryBead.csv" ) ) - 1 ];
-		public static MyStructs.bead_t[] bead_dbArray = new MyStructs.bead_t[ MyFunctions.RecordCount( MyFunctions.CsvFilePath( "bead.csv" ) ) - 1 ];
-		public static MyStructs.book_t[] book_dbArray = new MyStructs.book_t[ MyFunctions.RecordCount( MyFunctions.CsvFilePath( "book.csv" ) ) - 1 ];
-		public static MyStructs.decade_t[] decade_dbArray = new MyStructs.decade_t[ MyFunctions.RecordCount( MyFunctions.CsvFilePath( "decade.csv" ) ) - 1 ];
-		public static MyStructs.message_t[] message_dbArray = new MyStructs.message_t[ MyFunctions.RecordCount( MyFunctions.CsvFilePath( "message.csv" ) ) - 1 ];
-		public static MyStructs.mystery_t[] mystery_dbArray = new MyStructs.mystery_t[ MyFunctions.RecordCount( MyFunctions.CsvFilePath( "mystery.csv" ) ) - 1 ];
-		public static MyStructs.prayer_t[] prayer_dbArray = new MyStructs.prayer_t[ MyFunctions.RecordCount( MyFunctions.CsvFilePath( "prayer.csv" ) ) - 1 ];
-		public static MyStructs.scripture_t[] scripture_dbArray = new MyStructs.scripture_t[ MyFunctions.RecordCount( MyFunctions.CsvFilePath( "scripture.csv" ) ) - 1 ];
+		static int CsvRecordCount( string csvName) {
+			string path = MyFunctions.CsvFilePath( csvName );
+			int count = MyFunctions.RecordCount( path ) - 1;
+
+			return count;
+		}
+
+		public static MyStructs.rosaryBead_t[] rosaryBead_dbArray = new MyStructs.rosaryBead_t[ CsvRecordCount( "rosaryBead.csv" ) ];
+		public static MyStructs.bead_t[] bead_dbArray = new MyStructs.bead_t[ CsvRecordCount( "bead.csv" ) ];
+		public static MyStructs.book_t[] book_dbArray = new MyStructs.book_t[ CsvRecordCount( "book.csv" ) ];
+		public static MyStructs.decade_t[] decade_dbArray = new MyStructs.decade_t[ CsvRecordCount( "decade.csv" ) ];
+		public static MyStructs.message_t[] message_dbArray = new MyStructs.message_t[ CsvRecordCount( "message.csv" ) ];
+		public static MyStructs.mystery_t[] mystery_dbArray = new MyStructs.mystery_t[ CsvRecordCount( "mystery.csv" ) ];
+		public static MyStructs.prayer_t[] prayer_dbArray = new MyStructs.prayer_t[ CsvRecordCount( "prayer.csv" ) ];
+		public static MyStructs.scripture_t[] scripture_dbArray = new MyStructs.scripture_t[ CsvRecordCount( "scripture.csv" ) ];
 	}
 }

@@ -6,6 +6,7 @@ rem obj
 rem *.csproj
 
 :: init new dotnet project
+dotnet clean
 dotnet new console --force
 
 :: import desired Program.cs

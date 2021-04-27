@@ -4,7 +4,7 @@
 
 function InstallCsharp {
 	currentDir=$(PWD)
-	
+
 	## Install the .NET SDK or the .NET Runtime on Debian
 	## https://docs.microsoft.com/en-us/dotnet/core/install/linux-debian
 
@@ -51,7 +51,7 @@ function run {
 
 	if [ $isDotNet -eq 0 ]; then
 		echo "Init dotnet project ..."
-		
+
 		## clear previous builds
 		rm -rf bin
 		rm -rf obj
@@ -60,6 +60,7 @@ function run {
 		sleep 2
 
 		## init new dotnet project
+		dotnet clean
 		dotnet new console --force
 
 		sleep 2
