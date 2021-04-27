@@ -247,43 +247,43 @@ namespace sharp_structs {
 			Console.WriteLine( " Import Strt Time: " +  DateTime.Now  + "\n---" );
 
 			csvName = "rosaryBead.csv";
-			Console.WriteLine( " Importing: " + csvName + " ... ms: " + DateTime.Now.Millisecond );
+			Console.WriteLine( " Importing: " + csvName + "\t...\tms: " + DateTime.Now.Millisecond );
             path = MyFunctions.CsvFilePath( csvName );
             noRecords = MyFunctions.RecordCount( path );
             MyFunctions.PopulateRosaryBeadClass( path, noRecords );
 
 			csvName = "bead.csv";
-			Console.WriteLine( " Importing: " + csvName + " ... ms: " + DateTime.Now.Millisecond );
+			Console.WriteLine( " Importing: " + csvName + "\t\t...\tms: " + DateTime.Now.Millisecond );
             path = MyFunctions.CsvFilePath( csvName );
             noRecords = MyFunctions.RecordCount( path );
             MyFunctions.PopulateBeadClass( path, noRecords );
 
 			csvName = "decade.csv";
-			Console.WriteLine( " Importing: " + csvName + " ... ms: " + DateTime.Now.Millisecond );
+			Console.WriteLine( " Importing: " + csvName + "\t\t...\tms: " + DateTime.Now.Millisecond );
             path = MyFunctions.CsvFilePath( csvName );
             noRecords = MyFunctions.RecordCount( path );
             MyFunctions.PopulateDecadeClass( path, noRecords );
 
 			csvName = "message.csv";
-			Console.WriteLine( " Importing: " + csvName + " ... ms: " + DateTime.Now.Millisecond );
+			Console.WriteLine( " Importing: " + csvName + "\t\t...\tms: " + DateTime.Now.Millisecond );
             path = MyFunctions.CsvFilePath( csvName );
             noRecords = MyFunctions.RecordCount( path );
             MyFunctions.PopulateMessageClass( path, noRecords );
 
 			csvName = "mystery.csv";
-			Console.WriteLine( " Importing: " + csvName + " ... ms: " + DateTime.Now.Millisecond );
+			Console.WriteLine( " Importing: " + csvName + "\t\t...\tms: " + DateTime.Now.Millisecond );
             path = MyFunctions.CsvFilePath( csvName );
             noRecords = MyFunctions.RecordCount( path );
             MyFunctions.PopulateMysteryClass( path, noRecords );
 
 			csvName = "prayer.csv";
-			Console.WriteLine( " Importing: " + csvName + " ... ms: " + DateTime.Now.Millisecond );
+			Console.WriteLine( " Importing: " + csvName + "\t\t...\tms: " + DateTime.Now.Millisecond );
             path = MyFunctions.CsvFilePath( csvName );
             noRecords = MyFunctions.RecordCount( path );
             MyFunctions.PopulatePrayerClass( path, noRecords );
 
 			csvName = "scripture.csv";
-			Console.WriteLine( " Importing: " + csvName + " ... ms: " + DateTime.Now.Millisecond );
+			Console.WriteLine( " Importing: " + csvName + "\t...\tms: " + DateTime.Now.Millisecond );
             path = MyFunctions.CsvFilePath( csvName );
             noRecords = MyFunctions.RecordCount( path );
             MyFunctions.PopulateScriptureClass( path, noRecords );

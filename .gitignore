@@ -5,6 +5,6 @@ PPDATA/*
 
 *.exe
 *.csproj
+*.deb
 
 #Program.cs
-

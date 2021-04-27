@@ -18,7 +18,7 @@ function InstallCsharp {
 	sudo apt install -y wget build-essential vim tmux vifm aspell bc geany geany-plugins zip unzip
 
 	wget https://packages.microsoft.com/config/debian/10/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
-	sudo dpkg -i packages-microsoft-prod.deb
+	sudo dpkg -i packages-microsoft-prod.deb &&
 
 	## Install the SDK
 	## The .NET SDK allows you to develop apps with .NET. If you install the .NET SDK, you don't need to install the corresponding runtime.
@@ -43,6 +43,38 @@ function InstallCsharp {
 	echo -e "\n## Disable telemetry\nexport DOTNET_CLI_TELEMETRY_OPTOUT=1" >> ~/.bashrc
 
 	cd $currentDir
+}
+
+function InstallVSCode {
+	## https://code.visualstudio.com/docs/?dv=linux64_deb
+	## https://wiki.debian.org/VisualStudioCode
+	## https://github.com/Microsoft/vscode
+
+	echo -e "\nInstall VSCode from:
+	https://code.visualstudio.com/docs/?dv=linux64_deb
+	https://wiki.debian.org/VisualStudioCode
+	https://github.com/Microsoft/vscode
+	"
+}
+
+function InstallVSCodium {
+	## https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo
+
+	read -e -p "Install vscodium texteditor? [y/N]: " -i "N" yn
+
+	case $yn in
+		[Yy]* )
+			wget -qO - https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg \
+				| gpg --dearmor \
+				| sudo dd of=/usr/share/keyrings/vscodium-archive-keyring.gpg
+
+			echo 'deb [ signed-by=/usr/share/keyrings/vscodium-archive-keyring.gpg ] https://paulcarroty.gitlab.io/vscodium-deb-rpm-repo/debs vscodium main' \
+				| sudo tee /etc/apt/sources.list.d/vscodium.list
+
+			sudo apt update
+			sudo apt install codium
+			;;
+	esac
 }
 
 function run {
@@ -71,9 +103,15 @@ function run {
 		echo "Error."
 		echo -e "dotnet is  not installed. Attempting to install now.\n"
 
-		read -e -p "Press [enter] to continue ..." yn
+		read -e -p "Install Csharp dependancied? [Y/n]: " -i "Y" yn
+		case $yn in
+            [Yy]* )
+				InstallCsharp
+				;;
+		esac
 
-		InstallCsharp
+		InstallVSCode
+		InstallVSCodium
 	fi
 
 }
