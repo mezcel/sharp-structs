@@ -6,31 +6,59 @@ Based on the CSV ER Database from [printf-time.git](https://github.com/mezcel/pr
 
 ---
 
-## Terminal Projects
-
-```ps1
-## Init new project with auto generated hello-world demo
-dotnet new console
-
-## Run project
-dotnet run
-```
+## Initialize and run this .NET Project
 
 Debian
 ```bash
 ## rm previous bulds and initialize with *.txt script *.cs
+## .NET for Debian will also be installed if needed
+## https://docs.microsoft.com/en-us/dotnet/core/install/linux-debian
+
 ./dotnet-new-console-debian.sh
+
+## Run project
+
+dotnet run
 ```
 
 Win10
 ```bat
 :: rem previous bulds and initialize with *.txt script *.cs
+
 .\dotnet-new-console-win10.bat
+
+:: Run project
+
+dotnet run
 ```
 
 ---
 
-## Dependencies
+## Dependencies (Debian)
+
+Guidance: [Install the .NET SDK or the .NET Runtime on Debian](https://docs.microsoft.com/en-us/dotnet/core/install/linux-debian)
+
+```sh
+## DL *.deb
+
+wget https://packages.microsoft.com/config/debian/10/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+
+## install .Net
+
+sudo dpkg -i packages-microsoft-prod.deb
+
+sudo apt-get update; \
+	  sudo apt-get install -y apt-transport-https && \
+	  sudo apt-get update && \
+	  sudo apt-get install -y dotnet-sdk-5.0
+
+sudo apt-get update; \
+    sudo apt-get install -y apt-transport-https && \
+    sudo apt-get update && \
+    sudo apt-get install -y dotnet-runtime-5.0
+```
+
+## Dependencies (Win10)
 
 ### .NET 5.0 (recommended)
 
