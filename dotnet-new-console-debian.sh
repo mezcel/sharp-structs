@@ -107,6 +107,8 @@ function run {
 		case $yn in
             [Yy]* )
 				InstallCsharp
+
+				echo -e "\nIf Csharp was installed,\n\trun this script again to initialze this dot net project.\n"
 				;;
 		esac
 
