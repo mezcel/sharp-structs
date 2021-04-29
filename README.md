@@ -84,3 +84,19 @@ sudo apt-get update; \
 ```ps1
 dotnet publish --output "c:/temp/myapp" --runtime win-x64 --configuration Release -p:PublishSingleFile=true -p:PublishTrimmed=true --self-contained true
 ```
+
+---
+
+## VSCode Plugin
+
+```sh
+## https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp
+
+code --list-extensions
+code --install-extension ms-dotnettools.csharp
+#code --uninstall-extension ms-dotnettools.csharp
+```
+
+* VSCodium Plugin (alternative)
+
+    Non-MS Version: [https://github.com/muhammadsammy/free-omnisharp-vscode](https://github.com/muhammadsammy/free-omnisharp-vscode)
