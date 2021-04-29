@@ -17,30 +17,35 @@ function InstallCsharp {
 	sudo apt update
 	sudo apt install -y wget build-essential vim tmux vifm aspell bc geany geany-plugins zip unzip
 
-	wget https://packages.microsoft.com/config/debian/10/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
-	sudo dpkg -i packages-microsoft-prod.deb &&
+	if [ ! -f packages-microsoft-prod.deb ]; then
+		wget https://packages.microsoft.com/config/debian/10/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+	fi
 
-	## Install the SDK
-	## The .NET SDK allows you to develop apps with .NET. If you install the .NET SDK, you don't need to install the corresponding runtime.
+	if [ -f packages-microsoft-prod.deb ]; then
+		sudo dpkg -i packages-microsoft-prod.deb &&
 
-	sudo apt-get update; \
-	  sudo apt-get install -y apt-transport-https && \
-	  sudo apt-get update && \
-	  sudo apt-get install -y dotnet-sdk-5.0
+		## Install the SDK
+		## The .NET SDK allows you to develop apps with .NET. If you install the .NET SDK, you don't need to install the corresponding runtime.
 
-	## The ASP.NET Core Runtime allows you to run apps that were made with .NET that didn't provide the runtime. The following commands install the ASP.NET Core Runtime, which is the most compatible runtime for .NET.
+		sudo apt-get update; \
+		sudo apt-get install -y apt-transport-https && \
+		sudo apt-get update && \
+		sudo apt-get install -y dotnet-sdk-5.0
 
-	sudo apt-get update; \
-	  sudo apt-get install -y apt-transport-https && \
-	  sudo apt-get update && \
-	  sudo apt-get install -y dotnet-runtime-5.0
+		## The ASP.NET Core Runtime allows you to run apps that were made with .NET that didn't provide the runtime. The following commands install the ASP.NET Core Runtime, which is the most compatible runtime for .NET.
 
-	#sudo apt-get install -y aspnetcore-runtime-5.0
+		sudo apt-get update; \
+		sudo apt-get install -y apt-transport-https && \
+		sudo apt-get update && \
+		sudo apt-get install -y dotnet-runtime-5.0
 
-	## Disable telemetry
-	export DOTNET_CLI_TELEMETRY_OPTOUT=1
+		#sudo apt-get install -y aspnetcore-runtime-5.0
 
-	echo -e "\n## Disable telemetry\nexport DOTNET_CLI_TELEMETRY_OPTOUT=1" >> ~/.bashrc
+		## Disable telemetry
+		export DOTNET_CLI_TELEMETRY_OPTOUT=1
+
+		echo -e "\n## Disable telemetry\nexport DOTNET_CLI_TELEMETRY_OPTOUT=1" >> ~/.bashrc
+	fi
 
 	cd $currentDir
 }
@@ -78,6 +83,7 @@ function InstallVSCodium {
 }
 
 function run {
+
 	command -v dotnet
 	isDotNet=$?
 
@@ -119,7 +125,3 @@ function run {
 }
 
 run
-
-
-
-
