@@ -9,6 +9,14 @@ namespace sharp_structs {
 
             Console.WriteLine( "# Demo: Preview bead.csv ER class\n" );
 
+            // Class Arrtibute
+            string csvFile = MyFunctions.CsvFilePath( "bead.csv" );
+            string[] headerAttr = MyFunctions.ReturnHeaderArray( csvFile );
+
+            Console.WriteLine( " headerAttr[ 0 ] = " + headerAttr[0] + "\theaderAttr[ 1 ] = " + headerAttr[1] );
+
+            // Attribute Data
+            i = 0;
             foreach( MyStructs.bead_t bead in ERClass.bead_dbArray ) {
                 Console.WriteLine(" ERClass.bead_dbArray[ " + i + " ].beadID = " + ERClass.bead_dbArray[i].beadID + "\tERClass.bead_dbArray[ " + i + " ].beadType = " + ERClass.bead_dbArray[i].beadType );
                 i++;
@@ -75,6 +83,7 @@ namespace sharp_structs {
             DemoMysteryQuery();         // demo query
 
             Console.WriteLine("");
+
 
         }
     }
