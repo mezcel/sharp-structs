@@ -34,6 +34,40 @@ dotnet run
 
 ---
 
+# Development
+
+## Default Assumptions
+
+### CSV
+
+* ```*.csv``` files are ```;``` delineated instead of ```,```
+* Csv header format ERClassName.ERClassAttribute
+    * Example:
+        ```csv
+        "bead.beadID";"bead.beadType"
+        0;"my bead type string"
+        ```
+
+### Database
+
+Assumes CSV files are stored in ```.\database\csv\*.csv```
+
+* Change ```MyFunctions.CsvFilePath( csvBaseName )``` instructions or omit it's usage to import an external ER class.
+    * Manual defintion example:
+        ```cs
+        // base file name
+        string csvBaseName = "myCsvFile.csv";
+        ERClass.Bead.csvBaseName = csvBaseName;
+
+        // Default
+        string path = MyFunctions.CsvFilePath( csvBaseName ); // @".\database\csv\myCsvFile.csv"
+        ERClass.Bead.path = path;
+
+        // Alternate (N/A)
+        string path = @"C:\database\myCsvFile.csv"; // Custom path location
+        ERClass.Bead.path = path;
+        ```
+
 ## Dependencies (Debian)
 
 Guidance: [Install the .NET SDK or the .NET Runtime on Debian](https://docs.microsoft.com/en-us/dotnet/core/install/linux-debian)
