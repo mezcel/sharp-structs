@@ -35,17 +35,17 @@ namespace sharp_structs {
 
         static void DemoPreviewDB() {
             Console.WriteLine( "\n# Demo: Preview DB class size and attribute count\n" );
-            Console.WriteLine( " class array              \t\trecords\tfields" );
-            Console.WriteLine( " -------------------------\t\t-------\t------" );
+            Console.WriteLine( " class array        \trecords\tfields" );
+            Console.WriteLine( " -------------------\t-------\t------" );
 
-            Console.WriteLine( " ERClass.RosaryBead.structRecords\t" + ERClass.RosaryBead.structRecords.Length + "\t " + ERClass.RosaryBead.attributeNames.Length );
-            Console.WriteLine( " ERClass.Bead.totalRecords\t\t"    + ERClass.Bead.totalRecords + "\t " + ERClass.Bead.attributeNames.Length );
-            Console.WriteLine( " ERClass.Book.totalRecords\t\t"    + ERClass.Book.totalRecords + "\t " + ERClass.Book.attributeNames.Length );
-            Console.WriteLine( " ERClass.Decade.totalRecords\t\t"  + ERClass.Decade.totalRecords + "\t " + ERClass.Decade.attributeNames.Length );
-            Console.WriteLine( " ERClass.Message.totalRecords\t\t" + ERClass.Message.totalRecords + "\t " + ERClass.Message.attributeNames.Length );
-            Console.WriteLine( " ERClass.Mystery.totalRecords\t\t" + ERClass.Mystery.totalRecords + "\t " + ERClass.Mystery.attributeNames.Length );
-            Console.WriteLine( " ERClass.Prayer.totalRecords\t\t"  + ERClass.Prayer.totalRecords + "\t " + ERClass.Prayer.attributeNames.Length );
-            Console.WriteLine( " ERClass.Scripture.totalRecords\t" + ERClass.Scripture.totalRecords + "\t " + ERClass.Scripture.attributeNames.Length );
+            Console.WriteLine( " ERClass.RosaryBead\t" + ERClass.RosaryBead.totalRecords + "\t " + ERClass.RosaryBead.attributeNames.Length );
+            Console.WriteLine( " ERClass.Bead\t\t"    + ERClass.Bead.totalRecords + "\t " + ERClass.Bead.attributeNames.Length );
+            Console.WriteLine( " ERClass.Book\t\t"    + ERClass.Book.totalRecords + "\t " + ERClass.Book.attributeNames.Length );
+            Console.WriteLine( " ERClass.Decade\t\t"  + ERClass.Decade.totalRecords + "\t " + ERClass.Decade.attributeNames.Length );
+            Console.WriteLine( " ERClass.Message\t" + ERClass.Message.totalRecords + "\t " + ERClass.Message.attributeNames.Length );
+            Console.WriteLine( " ERClass.Mystery\t" + ERClass.Mystery.totalRecords + "\t " + ERClass.Mystery.attributeNames.Length );
+            Console.WriteLine( " ERClass.Prayer\t\t"  + ERClass.Prayer.totalRecords + "\t " + ERClass.Prayer.attributeNames.Length );
+            Console.WriteLine( " ERClass.Scripture\t" + ERClass.Scripture.totalRecords + "\t " + ERClass.Scripture.attributeNames.Length );
         }
 
         static void DemoMysteryQuery() {
