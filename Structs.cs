@@ -4,7 +4,7 @@ namespace sharp_structs {
 
 		public class RosaryBead {
 			public static string csvBaseName = "rosaryBead.csv";
-			public static string path; 				// = MyFunctions.CsvFilePath( csvFile );
+			public static string path; 				// = MyFunctions.CsvFilePath( csvBaseName );
 			public static string[] attributeNames; 	// = MyFunctions.ReturnHeaderArray( path );
 			public static int totalRecords = 0;     // = MyFunctions.RecordCount( path );
 
@@ -22,13 +22,14 @@ namespace sharp_structs {
 				public int mysteryPercent;
 			}
 			public static rosaryBead_t[] structRecords = new rosaryBead_t[ totalRecords ];
+                // Array.Resize( ref ERClass.RosaryBead.structRecords, ERClass.RosaryBead.totalRecords - 1 );
 		}
 
 		public class Bead {
 			/* ER Class Struct: Bead */
 
 			public static string csvBaseName = "bead.csv";
-			public static string path; 				// = MyFunctions.CsvFilePath( csvFile );
+			public static string path; 				// = MyFunctions.CsvFilePath( csvBaseName );
 			public static string[] attributeNames; 	// = MyFunctions.ReturnHeaderArray( path );
 			public static int totalRecords = 0;     // = MyFunctions.RecordCount( path );
 
@@ -38,11 +39,12 @@ namespace sharp_structs {
 				public string beadType;
 			}
 			public static bead_t[] structRecords = new bead_t[ totalRecords ];
+                // Array.Resize( ref ERClass.Bead.structRecords, ERClass.Bead.totalRecords - 1 );
 		}
 
 		public class Book {
 			public static string csvBaseName = "book.csv";
-			public static string path; 				// = MyFunctions.CsvFilePath( csvFile );
+			public static string path; 				// = MyFunctions.CsvFilePath( csvBaseName );
 			public static string[] attributeNames; 	// = MyFunctions.ReturnHeaderArray( path );
 			public static int totalRecords = 0;     // = MyFunctions.RecordCount( path );
 
@@ -53,11 +55,12 @@ namespace sharp_structs {
 				public string library;
 			}
 			public static book_t[] structRecords = new book_t[ totalRecords ];
+                // Array.Resize( ref ERClass.Book.structRecords, ERClass.Book.totalRecords - 1 );
 		}
 
 		public class Decade {
 			public static string csvBaseName = "decade.csv";
-			public static string path; 				// = MyFunctions.CsvFilePath( csvFile );
+			public static string path; 				// = MyFunctions.CsvFilePath( csvBaseName );
 			public static string[] attributeNames; 	// = MyFunctions.ReturnHeaderArray( path );
 			public static int totalRecords = 0;     // = MyFunctions.RecordCount( path );
 
@@ -71,11 +74,12 @@ namespace sharp_structs {
 				public string infoRefference;
 			}
 			public static decade_t[] structRecords = new decade_t[ totalRecords ];
+                // Array.Resize( ref ERClass.Decade.structRecords, ERClass.Decade.totalRecords - 1 );
 		}
 
 		public class Message {
 			public static string csvBaseName = "message.csv";
-			public static string path; 				// = MyFunctions.CsvFilePath( csvFile );
+			public static string path; 				// = MyFunctions.CsvFilePath( csvBaseName );
 			public static string[] attributeNames; 	// = MyFunctions.ReturnHeaderArray( path );
 			public static int totalRecords = 0;     // = MyFunctions.RecordCount( path );
 
@@ -85,13 +89,14 @@ namespace sharp_structs {
 				public string mesageText;
 			}
 			public static message_t[] structRecords = new message_t[ totalRecords ];
+                // Array.Resize( ref ERClass.Message.structRecords, ERClass.Message.totalRecords - 1 );
 		}
 
 		public class Mystery {
 			/* ER Class Struct: Bead */
 
 			public static string csvBaseName = "mystery.csv";
-			public static string path; 				// = MyFunctions.CsvFilePath( csvFile );
+			public static string path; 				// = MyFunctions.CsvFilePath( csvBaseName );
 			public static string[] attributeNames; 	// = MyFunctions.ReturnHeaderArray( path );
 			public static int totalRecords = 0;     // = MyFunctions.RecordCount( path );
 
@@ -102,13 +107,14 @@ namespace sharp_structs {
 				public string mysteryName;
 			}
 			public static mystery_t[] structRecords = new mystery_t[ totalRecords ];
+                // Array.Resize( ref ERClass.Mystery.structRecords, ERClass.Mystery.totalRecords - 1 );
 		}
 
 		public class Prayer {
 			/* ER Class Struct: Bead */
 
 			public static string csvBaseName = "prayer.csv";
-			public static string path; 				// = MyFunctions.CsvFilePath( csvFile );
+			public static string path; 				// = MyFunctions.CsvFilePath( csvBaseName );
 			public static string[] attributeNames; 	// = MyFunctions.ReturnHeaderArray( path );
 			public static int totalRecords = 0;     // = MyFunctions.RecordCount( path );
 
@@ -119,13 +125,14 @@ namespace sharp_structs {
 				public string prayerText;
 			}
 			public static prayer_t[] structRecords = new prayer_t[ totalRecords ];
+                // Array.Resize( ref ERClass.Prayer.structRecords, ERClass.Prayer.totalRecords - 1 );
 		}
 
 		public class Scripture {
 			/* ER Class Struct: Bead */
 
 			public static string csvBaseName = "scripture.csv";
-			public static string path; 				// = MyFunctions.CsvFilePath( csvFile );
+			public static string path; 				// = MyFunctions.CsvFilePath( csvBaseName );
 			public static string[] attributeNames; 	// = MyFunctions.ReturnHeaderArray( path );
 			public static int totalRecords = 0;     // = MyFunctions.RecordCount( path );
 
@@ -138,6 +145,7 @@ namespace sharp_structs {
 				public string scriptureText;
 			}
 			public static scripture_t[] structRecords = new scripture_t[ totalRecords ];
+                // Array.Resize( ref ERClass.Scripture.structRecords, ERClass.Scripture.totalRecords - 1 );
 		}
 
 	}

@@ -12,7 +12,7 @@ namespace sharp_structs {
             // Update Class info
 			ERClass.RosaryBead.path 		    = path;
 			ERClass.RosaryBead.attributeNames	= MyFunctions.ReturnHeaderArray( ERClass.RosaryBead.path );
-			ERClass.RosaryBead.totalRecords 	= MyFunctions.RecordCount( ERClass.RosaryBead.path );
+			ERClass.RosaryBead.totalRecords 	= MyFunctions.RecordCount( ERClass.RosaryBead.path ) - 1;
 
 			string[] readText = File.ReadAllLines( ERClass.RosaryBead.path );
 
@@ -24,7 +24,7 @@ namespace sharp_structs {
 
 				if ( csvLineCount > 0 && csvLineCount < ERClass.RosaryBead.totalRecords ) {
 					string[] fields = record.Split(';');
-					recordIndex = csvLineCount - 1;
+					recordIndex     = csvLineCount - 1;
 
 					ERClass.RosaryBead.structRecords[recordIndex].rosaryBeadID      = Int32.Parse( fields[0] );
 					ERClass.RosaryBead.structRecords[recordIndex].beadIndex         = Int32.Parse( fields[1] );
@@ -49,7 +49,7 @@ namespace sharp_structs {
             // Update Class info
 			ERClass.Bead.path 		    = path;
 			ERClass.Bead.attributeNames	= MyFunctions.ReturnHeaderArray( ERClass.Bead.path );
-			ERClass.Bead.totalRecords 	= MyFunctions.RecordCount( ERClass.Bead.path );
+			ERClass.Bead.totalRecords 	= MyFunctions.RecordCount( ERClass.Bead.path ) - 1;
 
 			string[] readText = File.ReadAllLines( ERClass.Bead.path );
 
@@ -61,7 +61,7 @@ namespace sharp_structs {
 
 				if ( csvLineCount > 0 && csvLineCount < ERClass.Bead.totalRecords ) {
 					string[] fields = record.Split(';');
-					recordIndex = csvLineCount - 1;
+					recordIndex     = csvLineCount - 1;
 
 					ERClass.Bead.structRecords[recordIndex].beadID 	= Int32.Parse( fields[0] );
 					ERClass.Bead.structRecords[recordIndex].beadType = fields[1];
@@ -79,7 +79,7 @@ namespace sharp_structs {
             // Update Class info
 			ERClass.Book.path 		    = path;
 			ERClass.Book.attributeNames	= MyFunctions.ReturnHeaderArray( ERClass.Book.path );
-			ERClass.Book.totalRecords 	= MyFunctions.RecordCount( ERClass.Book.path );
+			ERClass.Book.totalRecords 	= MyFunctions.RecordCount( ERClass.Book.path ) - 1;
 
 			string[] readText = File.ReadAllLines( ERClass.Book.path );
 
@@ -91,7 +91,7 @@ namespace sharp_structs {
 
 				if ( csvLineCount > 0 && csvLineCount < ERClass.Book.totalRecords ) {
 					string[] fields = record.Split(';');
-					recordIndex = csvLineCount - 1;
+					recordIndex     = csvLineCount - 1;
 
 					ERClass.Book.structRecords[recordIndex].bookID   = Int32.Parse( fields[0] );
 					ERClass.Book.structRecords[recordIndex].bookName = fields[1];
@@ -110,7 +110,7 @@ namespace sharp_structs {
             // Update Class info
 			ERClass.Decade.path 		  = path;
 			ERClass.Decade.attributeNames = MyFunctions.ReturnHeaderArray( ERClass.Decade.path );
-			ERClass.Decade.totalRecords   = MyFunctions.RecordCount( ERClass.Decade.path );
+			ERClass.Decade.totalRecords   = MyFunctions.RecordCount( ERClass.Decade.path ) - 1;
 
 			string[] readText = File.ReadAllLines( ERClass.Decade.path );
 
@@ -122,7 +122,7 @@ namespace sharp_structs {
 
 				if ( csvLineCount > 0 && csvLineCount < ERClass.Decade.totalRecords ) {
 					string[] fields = record.Split(';');
-					recordIndex = csvLineCount - 1;
+					recordIndex     = csvLineCount - 1;
 
 					ERClass.Decade.structRecords[recordIndex].decadeID      = Int32.Parse( fields[0] );
 					ERClass.Decade.structRecords[recordIndex].mysteryIndex 	= Int32.Parse( fields[1] );
@@ -144,7 +144,7 @@ namespace sharp_structs {
             // Update Class info
 			ERClass.Message.path 		   = path;
 			ERClass.Message.attributeNames = MyFunctions.ReturnHeaderArray( ERClass.Message.path );
-			ERClass.Message.totalRecords   = MyFunctions.RecordCount( ERClass.Message.path );
+			ERClass.Message.totalRecords   = MyFunctions.RecordCount( ERClass.Message.path ) - 1;
 
 			string[] readText = File.ReadAllLines( ERClass.Message.path );
 
@@ -156,7 +156,7 @@ namespace sharp_structs {
 
 				if ( csvLineCount > 0 && csvLineCount < ERClass.Message.totalRecords ) {
 					string[] fields = record.Split(';');
-					recordIndex = csvLineCount - 1;
+					recordIndex     = csvLineCount - 1;
 
 					ERClass.Message.structRecords[recordIndex].messageID 	= Int32.Parse( fields[0] );
 					ERClass.Message.structRecords[recordIndex].mesageText = fields[1];
@@ -174,7 +174,7 @@ namespace sharp_structs {
             // Update Class info
 			ERClass.Mystery.path           = path;
 			ERClass.Mystery.attributeNames = MyFunctions.ReturnHeaderArray( ERClass.Mystery.path );
-			ERClass.Mystery.totalRecords   = MyFunctions.RecordCount( ERClass.Mystery.path );
+			ERClass.Mystery.totalRecords   = MyFunctions.RecordCount( ERClass.Mystery.path ) - 1;
 
 			string[] readText = File.ReadAllLines( ERClass.Mystery.path );
 
@@ -186,7 +186,7 @@ namespace sharp_structs {
 
 				if ( csvLineCount > 0 && csvLineCount < ERClass.Mystery.totalRecords ) {
 					string[] fields = record.Split(';');
-					recordIndex = csvLineCount - 1;
+					recordIndex     = csvLineCount - 1;
 
 					ERClass.Mystery.structRecords[recordIndex].mysteryID    = Int32.Parse( fields[0] );
 					ERClass.Mystery.structRecords[recordIndex].mysteryNo    = Int32.Parse( fields[1] );
@@ -205,7 +205,7 @@ namespace sharp_structs {
             // Update Class info
 			ERClass.Prayer.path 		  = path;
 			ERClass.Prayer.attributeNames = MyFunctions.ReturnHeaderArray( ERClass.Prayer.path );
-			ERClass.Prayer.totalRecords   = MyFunctions.RecordCount( ERClass.Prayer.path );
+			ERClass.Prayer.totalRecords   = MyFunctions.RecordCount( ERClass.Prayer.path ) - 1;
 
 			string[] readText = File.ReadAllLines( ERClass.Prayer.path );
 
@@ -217,7 +217,7 @@ namespace sharp_structs {
 
 				if ( csvLineCount > 0 && csvLineCount < ERClass.Prayer.totalRecords ) {
 					string[] fields = record.Split(';');
-					recordIndex = csvLineCount - 1;
+					recordIndex     = csvLineCount - 1;
 
 					ERClass.Prayer.structRecords[recordIndex].prayerID   = Int32.Parse( fields[0] );
 					ERClass.Prayer.structRecords[recordIndex].prayerName = fields[1];
@@ -236,7 +236,7 @@ namespace sharp_structs {
             // Update Class info
 			ERClass.Scripture.path 		     = path;
 			ERClass.Scripture.attributeNames = MyFunctions.ReturnHeaderArray( ERClass.Scripture.path );
-			ERClass.Scripture.totalRecords   = MyFunctions.RecordCount( ERClass.Scripture.path );
+			ERClass.Scripture.totalRecords   = MyFunctions.RecordCount( ERClass.Scripture.path ) - 1;
 
 			string[] readText = File.ReadAllLines( ERClass.Scripture.path );
 
@@ -248,7 +248,7 @@ namespace sharp_structs {
 
 				if ( csvLineCount > 0 && csvLineCount < ERClass.Scripture.totalRecords ) {
 					string[] fields = record.Split(';');
-					recordIndex = csvLineCount - 1;
+					recordIndex     = csvLineCount - 1;
 
 					ERClass.Scripture.structRecords[recordIndex].scriptureID    = Int32.Parse( fields[0] );
 					ERClass.Scripture.structRecords[recordIndex].bookIndex      = Int32.Parse( fields[1] );
@@ -293,7 +293,7 @@ namespace sharp_structs {
             OperatingSystem os = Environment.OSVersion;
 
 			currentDir = Directory.GetCurrentDirectory();
-            myOs = os.Platform.ToString();
+            myOs       = os.Platform.ToString();
 
             if ( myOs == "Unix" ) {
 				currentDir+= @"/database/csv/";
@@ -308,15 +308,11 @@ namespace sharp_structs {
 
 		public static int RecordCount( string path ) {
 			int count = 0;
-
 			string[] readText = File.ReadAllLines(path);
+
 			foreach( string s in readText ) {
-				// skip empty lines
-				if ( s.Trim() == "" ) {
-					continue;
-				} else {
-					count++;
-				}
+				if ( s.Trim() == "" ) { continue; } // skip empty lines
+				count++;
 			}
 
 			return count;
@@ -326,7 +322,7 @@ namespace sharp_structs {
 			int count = 0;
 
 			string[] readText = File.ReadAllLines(path);
-			string[] fields = readText[0].Split(';');
+			string[] fields   = readText[0].Split(';');
 
 			count = fields.Length;
 
@@ -350,52 +346,89 @@ namespace sharp_structs {
 		}
 
 		public static void ImportCsvDatabase() {
+            // astDiffSume csvs are contained within ".\database\csv\*.csv"
 			string path, csvName;
-            // assume csvs are contained within ".\database\csv\*.csv"
+            DateTime t0, t1;
+            TimeSpan tDiffSum, tDiff;
 
-			Console.WriteLine( " Import Start Time:\t" + DateTime.Now + "\tms: " + DateTime.Now.Millisecond + "\n---" );
+            t0 = t1 = DateTime.Now;
+            tDiff    = t1 - t0;
+            tDiffSum = t0 - t0;
+			Console.WriteLine( " Import Start Time:\t" + DateTime.Now + "\tTimeSpan: " + tDiffSum + "\t\tms:" + tDiffSum.Milliseconds  + "\n---" );
 
 			csvName = "rosaryBead.csv";
-			Console.WriteLine( " Importing: " + csvName + "\t...\tms: " + DateTime.Now.Millisecond );
-            path = MyFunctions.CsvFilePath( csvName );
+            t0      = DateTime.Now;
+            path    = MyFunctions.CsvFilePath( csvName );
             PopulateER.RosaryBead( path );
+            t1       = DateTime.Now;
+            tDiff    = t1 - t0;
+            tDiffSum += tDiff;
+			Console.WriteLine( " Importing: " + csvName + "\t...\t\tTimeSpan: " + tDiff + "\tms:" + tDiff.Milliseconds );
 
 			csvName = "bead.csv";
-			Console.WriteLine( " Importing: " + csvName + "\t\t...\tms: " + DateTime.Now.Millisecond );
-            path = MyFunctions.CsvFilePath( csvName );
+            t0      = DateTime.Now;
+            path    = MyFunctions.CsvFilePath( csvName );
             PopulateER.Bead( path );
+            t1       = DateTime.Now;
+            tDiff    = t1 - t0;
+            tDiffSum += tDiff;
+			Console.WriteLine( " Importing: " + csvName + "\t\t...\t\tTimeSpan: " + tDiff + "\tms:" + tDiff.Milliseconds );
 
 			csvName = "book.csv";
-			Console.WriteLine( " Importing: " + csvName + "\t\t...\tms: " + DateTime.Now.Millisecond );
-            path = MyFunctions.CsvFilePath( csvName );
+            t0      = DateTime.Now;
+            path    = MyFunctions.CsvFilePath( csvName );
             PopulateER.Book( path );
+            t1       = DateTime.Now;
+            tDiff    = t1 - t0;
+            tDiffSum += tDiff;
+			Console.WriteLine( " Importing: " + csvName + "\t\t...\t\tTimeSpan: " + tDiff + "\tms:" + tDiff.Milliseconds );
 
 			csvName = "decade.csv";
-			Console.WriteLine( " Importing: " + csvName + "\t\t...\tms: " + DateTime.Now.Millisecond );
-            path = MyFunctions.CsvFilePath( csvName );
+            t0      = DateTime.Now;
+            path    = MyFunctions.CsvFilePath( csvName );
             PopulateER.Decade( path );
+            t1       = DateTime.Now;
+            tDiff    = t1 - t0;
+            tDiffSum += tDiff;
+			Console.WriteLine( " Importing: " + csvName + "\t\t...\t\tTimeSpan: " + tDiff + "\tms:" + tDiff.Milliseconds );
 
 			csvName = "message.csv";
-			Console.WriteLine( " Importing: " + csvName + "\t\t...\tms: " + DateTime.Now.Millisecond );
-            path = MyFunctions.CsvFilePath( csvName );
+            t0      = DateTime.Now;
+            path    = MyFunctions.CsvFilePath( csvName );
             PopulateER.Message( path );
+            t1       = DateTime.Now;
+            tDiff    = t1 - t0;
+            tDiffSum += tDiff;
+			Console.WriteLine( " Importing: " + csvName + "\t\t...\t\tTimeSpan: " + tDiff + "\tms:" + tDiff.Milliseconds );
 
 			csvName = "mystery.csv";
-			Console.WriteLine( " Importing: " + csvName + "\t\t...\tms: " + DateTime.Now.Millisecond );
-            path = MyFunctions.CsvFilePath( csvName );
+            t0      = DateTime.Now;
+            path    = MyFunctions.CsvFilePath( csvName );
             PopulateER.Mystery( path );
+            t1       = DateTime.Now;
+            tDiff    = t1 - t0;
+            tDiffSum += tDiff;
+			Console.WriteLine( " Importing: " + csvName + "\t\t...\t\tTimeSpan: " + tDiff + "\tms:" + tDiff.Milliseconds );
 
 			csvName = "prayer.csv";
-			Console.WriteLine( " Importing: " + csvName + "\t\t...\tms: " + DateTime.Now.Millisecond );
-            path = MyFunctions.CsvFilePath( csvName );
+            t0      = DateTime.Now;
+            path    = MyFunctions.CsvFilePath( csvName );
             PopulateER.Prayer( path );
+            t1       = DateTime.Now;
+            tDiff    = t1 - t0;
+            tDiffSum += tDiff;
+			Console.WriteLine( " Importing: " + csvName + "\t\t...\t\tTimeSpan: " + tDiff + "\tms:" + tDiff.Milliseconds );
 
 			csvName = "scripture.csv";
-			Console.WriteLine( " Importing: " + csvName + "\t...\tms: " + DateTime.Now.Millisecond );
-            path = MyFunctions.CsvFilePath( csvName );
+            t0      = DateTime.Now;
+            path    = MyFunctions.CsvFilePath( csvName );
             PopulateER.Scripture( path );
+            t1       = DateTime.Now;
+            tDiff    = t1 - t0;
+            tDiffSum += tDiff;
+			Console.WriteLine( " Importing: " + csvName + "\t...\t\tTimeSpan: " + tDiff + "\tms:" + tDiff.Milliseconds );
 
-			Console.WriteLine( "---\n Import End Time:\t" +  DateTime.Now + "\tms: " + DateTime.Now.Millisecond + "\n" );
+			Console.WriteLine( "---\n Import End Time:\t" +  DateTime.Now + "\tTimeSpan: " + tDiffSum + "\tms:" + tDiffSum.Milliseconds  + "\n" );
 		}
 
 	}
@@ -409,27 +442,26 @@ namespace sharp_structs {
 	}
 
     public class RosaryMethods {
-		public static string TodaysMysteryName() {
+		public static string TodaysMysteryName( DateTime today ) {
 
-			int todayIndex = (int)CalendarCalculations.ReturnToday().DayOfWeek;
+			int weekdayIndex = (int)today.DayOfWeek;
 
-			switch( todayIndex ) {
+			switch( weekdayIndex ) {
 				case 0 or 3:
-					todayIndex = 4;
+					weekdayIndex = 4;
 					break;
 				case 1 or 6:
-					todayIndex = 1;
+					weekdayIndex = 1;
 					break;
 				case 2 or 5:
-					todayIndex = 3;
+					weekdayIndex = 3;
 					break;
 				case 4:
-					todayIndex = 2;
+					weekdayIndex = 2;
 					break;
-
 			}
 
-			string mysteryName = ERClass.Mystery.structRecords[todayIndex].mysteryName;
+			string mysteryName = ERClass.Mystery.structRecords[ weekdayIndex ].mysteryName;
 
 			return mysteryName;
 		}
