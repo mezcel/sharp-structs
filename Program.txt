@@ -1,4 +1,6 @@
 ﻿using System; // console
+using System.IO; // Environment
+using System.Collections; // ArrayList()
 
 namespace sharp_structs {
 
@@ -7,53 +9,51 @@ namespace sharp_structs {
         static void DemoBeadER() {
             int i = 0;
 
-            Console.WriteLine( "# Demo: Preview bead.csv ER class\n" );
+            Console.WriteLine( "# Demo2: Preview bead.csv ER class\n" );
 
             // Class Arrtibute
             string csvFile = MyFunctions.CsvFilePath( "bead.csv" );
             string[] headerAttr = MyFunctions.ReturnHeaderArray( csvFile );
 
-            Console.WriteLine( " headerAttr[ 0 ] = " + headerAttr[0] + "\theaderAttr[ 1 ] = " + headerAttr[1] );
+            Console.WriteLine( " ERClass.Bead.csvBaseName = " + ERClass.Bead.csvBaseName +
+                "\t\tERClass.Bead.attributes.Length = " + ERClass.Bead.attributeNames.Length );
+
+            Console.WriteLine( " ERClass.Bead.attributes[ 0 ] = " + ERClass.Bead.attributeNames[0] +
+                "\t\tERClass.Bead.attributes[ 1 ] = " + ERClass.Bead.attributeNames[1] );
 
             // Attribute Data
-            i = 0;
-            foreach( MyStructs.bead_t bead in ERClass.bead_dbArray ) {
-                Console.WriteLine(" ERClass.bead_dbArray[ " + i + " ].beadID = " + ERClass.bead_dbArray[i].beadID + "\tERClass.bead_dbArray[ " + i + " ].beadType = " + ERClass.bead_dbArray[i].beadType );
+            foreach( ERClass.Bead.bead_t bead in ERClass.Bead.structRecords ) {
+
+                Console.WriteLine(
+                    " ERClass.Bead.structRecords[ " + i + " ].beadID = " + ERClass.Bead.structRecords[i].beadID +
+                    "\tERClass.Bead.structRecords[ " + i + " ].beadType = " + ERClass.Bead.structRecords[i].beadType );
+
                 i++;
             }
 
         }
 
         static void DemoPreviewDB() {
-            int noFields;
 
             Console.WriteLine( "\n# Demo: Preview DB class size and attribute count\n" );
             Console.WriteLine( " class array              \trecords\tfields" );
             Console.WriteLine( " -------------------------\t-------\t------" );
 
-            noFields = MyFunctions.FieldCount( MyFunctions.CsvFilePath ( "rosaryBead.csv" ) ) ;
-            Console.WriteLine( " ERClass.rosaryBead_dbArray\t" + ERClass.rosaryBead_dbArray.Length + "\t " + noFields );
+            Console.WriteLine( " ERClass.rosaryBead_dbArray\t" + ERClass.RosaryBead.structRecords.Length + "\t " + ERClass.RosaryBead.totalRecords );
 
-            noFields = MyFunctions.FieldCount( MyFunctions.CsvFilePath ( "bead.csv" ) ) ;
-            Console.WriteLine( " ERClass.bead_dbArray\t\t" + ERClass.bead_dbArray.Length + "\t " + noFields );
+            Console.WriteLine( " ERClass.bead_dbArray\t\t" + ERClass.Bead.structRecords.Length + "\t " + ERClass.Bead.totalRecords );
 
-            noFields = MyFunctions.FieldCount( MyFunctions.CsvFilePath ( "book.csv" ) ) ;
-            Console.WriteLine( " ERClass.book_dbArray\t\t" + ERClass.book_dbArray.Length + "\t " + noFields );
+            Console.WriteLine( " ERClass.book_dbArray\t\t" + ERClass.Book.structRecords.Length + "\t " + ERClass.Book.totalRecords );
 
-            noFields = MyFunctions.FieldCount( MyFunctions.CsvFilePath ( "decade.csv" ) ) ;
-            Console.WriteLine( " ERClass.decade_dbArray\t\t" + ERClass.decade_dbArray.Length + "\t " + noFields );
+            Console.WriteLine( " ERClass.decade_dbArray\t\t" + ERClass.Decade.structRecords.Length + "\t " + ERClass.Decade.totalRecords );
 
-            noFields = MyFunctions.FieldCount( MyFunctions.CsvFilePath ( "message.csv" ) ) ;
-            Console.WriteLine( " ERClass.message_dbArray\t" + ERClass.message_dbArray.Length + "\t " + noFields );
+            Console.WriteLine( " ERClass.message_dbArray\t" + ERClass.Message.structRecords.Length + "\t " + ERClass.Message.totalRecords );
 
-            noFields = MyFunctions.FieldCount( MyFunctions.CsvFilePath ( "mystery.csv" ) ) ;
-            Console.WriteLine( " ERClass.mystery_dbArray\t" + ERClass.mystery_dbArray.Length + "\t " + noFields );
+            Console.WriteLine( " ERClass.mystery_dbArray\t" + ERClass.Mystery.structRecords.Length + "\t " + ERClass.Mystery.totalRecords );
 
-            noFields = MyFunctions.FieldCount( MyFunctions.CsvFilePath ( "prayer.csv" ) ) ;
-            Console.WriteLine( " ERClass.prayer_dbArray\t\t" + ERClass.prayer_dbArray.Length + "\t " + noFields );
+            Console.WriteLine( " ERClass.prayer_dbArray\t\t" + ERClass.Prayer.structRecords.Length + "\t " + ERClass.Prayer.totalRecords );
 
-            noFields = MyFunctions.FieldCount( MyFunctions.CsvFilePath ( "scripture.csv" ) ) ;
-            Console.WriteLine( " ERClass.scripture_dbArray\t" + ERClass.scripture_dbArray.Length + "\t " + noFields );
+            Console.WriteLine( " ERClass.scripture_dbArray\t" + ERClass.Scripture.structRecords.Length + "\t " + ERClass.Scripture.totalRecords );
 
         }
 
@@ -73,18 +73,19 @@ namespace sharp_structs {
         static void Main(string[] args) {
             Console.Clear();            // clear console
 
-            Console.WriteLine("## ##############\n## sharp-structs\n## ##############\n");
+            Console.WriteLine("## ################# ##");
+            Console.WriteLine("##   sharp-structs   ##");
+            Console.WriteLine("## ################# ##");
+            Console.WriteLine("");
 
-            MyFunctions.GetOsInfo();    // display OS info
-            MyFunctions.CsvToStructs(); // import csv files into a struct ER DB
+            MyFunctions.GetOsInfo();         // display OS info
+            MyFunctions.ImportCsvDatabase(); // import csv files into a struct ER DB
 
             DemoBeadER();               // demo ER Class
             DemoPreviewDB();            // demo ER DB
             DemoMysteryQuery();         // demo query
 
             Console.WriteLine("");
-
-
         }
     }
 }
