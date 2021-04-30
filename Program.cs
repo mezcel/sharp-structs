@@ -1,6 +1,4 @@
 ﻿using System; // console
-using System.IO; // Environment
-using System.Collections; // ArrayList()
 
 namespace sharp_structs {
 
