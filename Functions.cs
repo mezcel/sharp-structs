@@ -12,12 +12,12 @@ namespace sharp_structs {
             // Update Class info
 			ERClass.RosaryBead.path 		    = path;
 			ERClass.RosaryBead.attributeNames	= MyFunctions.ReturnHeaderArray( ERClass.RosaryBead.path );
-			ERClass.RosaryBead.totalRecords 	= MyFunctions.RecordCount( ERClass.RosaryBead.path ) - 1;
+			ERClass.RosaryBead.totalRecords 	= MyFunctions.RecordCount( ERClass.RosaryBead.path );
 
 			string[] readText = File.ReadAllLines( ERClass.RosaryBead.path );
 
 			// Resize Array of record structs from initial array size [0]
-			Array.Resize( ref ERClass.RosaryBead.structRecords, ERClass.RosaryBead.totalRecords - 1 );
+			Array.Resize( ref ERClass.RosaryBead.structRecords, ERClass.RosaryBead.totalRecords );
 
 			foreach( string record in readText ) {
 				if ( record.Trim() == "" ) { continue; }
@@ -49,17 +49,17 @@ namespace sharp_structs {
             // Update Class info
 			ERClass.Bead.path 		    = path;
 			ERClass.Bead.attributeNames	= MyFunctions.ReturnHeaderArray( ERClass.Bead.path );
-			ERClass.Bead.totalRecords 	= MyFunctions.RecordCount( ERClass.Bead.path ) - 1;
+			ERClass.Bead.totalRecords 	= MyFunctions.RecordCount( ERClass.Bead.path );
 
 			string[] readText = File.ReadAllLines( ERClass.Bead.path );
 
 			// Resize Array of record structs from initial array size [0]
-			Array.Resize( ref ERClass.Bead.structRecords, ERClass.Bead.totalRecords - 1 );
+			Array.Resize( ref ERClass.Bead.structRecords, ERClass.Bead.totalRecords );
 
 			foreach( string record in readText ) {
 				if ( record.Trim() == "" ) { continue; }
 
-				if ( csvLineCount > 0 && csvLineCount < ERClass.Bead.totalRecords ) {
+				if ( csvLineCount > 0 ) {
 					string[] fields = record.Split(';');
 					recordIndex     = csvLineCount - 1;
 
@@ -79,12 +79,12 @@ namespace sharp_structs {
             // Update Class info
 			ERClass.Book.path 		    = path;
 			ERClass.Book.attributeNames	= MyFunctions.ReturnHeaderArray( ERClass.Book.path );
-			ERClass.Book.totalRecords 	= MyFunctions.RecordCount( ERClass.Book.path ) - 1;
+			ERClass.Book.totalRecords 	= MyFunctions.RecordCount( ERClass.Book.path );
 
 			string[] readText = File.ReadAllLines( ERClass.Book.path );
 
 			// Resize Array of record structs from initial array size [0]
-			Array.Resize( ref ERClass.Book.structRecords, ERClass.Book.totalRecords - 1 );
+			Array.Resize( ref ERClass.Book.structRecords, ERClass.Book.totalRecords );
 
 			foreach( string record in readText ) {
 				if ( record.Trim() == "" ) { continue; }
@@ -110,12 +110,12 @@ namespace sharp_structs {
             // Update Class info
 			ERClass.Decade.path 		  = path;
 			ERClass.Decade.attributeNames = MyFunctions.ReturnHeaderArray( ERClass.Decade.path );
-			ERClass.Decade.totalRecords   = MyFunctions.RecordCount( ERClass.Decade.path ) - 1;
+			ERClass.Decade.totalRecords   = MyFunctions.RecordCount( ERClass.Decade.path );
 
 			string[] readText = File.ReadAllLines( ERClass.Decade.path );
 
 			// Resize Array of record structs from initial array size [0]
-			Array.Resize( ref ERClass.Decade.structRecords, ERClass.Decade.totalRecords - 1 );
+			Array.Resize( ref ERClass.Decade.structRecords, ERClass.Decade.totalRecords );
 
 			foreach( string record in readText ) {
 				if ( record.Trim() == "" ) { continue; }
@@ -144,12 +144,12 @@ namespace sharp_structs {
             // Update Class info
 			ERClass.Message.path 		   = path;
 			ERClass.Message.attributeNames = MyFunctions.ReturnHeaderArray( ERClass.Message.path );
-			ERClass.Message.totalRecords   = MyFunctions.RecordCount( ERClass.Message.path ) - 1;
+			ERClass.Message.totalRecords   = MyFunctions.RecordCount( ERClass.Message.path );
 
 			string[] readText = File.ReadAllLines( ERClass.Message.path );
 
 			// Resize Array of record structs from initial array size [0]
-			Array.Resize( ref ERClass.Message.structRecords, ERClass.Message.totalRecords - 1 );
+			Array.Resize( ref ERClass.Message.structRecords, ERClass.Message.totalRecords );
 
 			foreach( string record in readText ) {
 				if ( record.Trim() == "" ) { continue; }
@@ -174,12 +174,12 @@ namespace sharp_structs {
             // Update Class info
 			ERClass.Mystery.path           = path;
 			ERClass.Mystery.attributeNames = MyFunctions.ReturnHeaderArray( ERClass.Mystery.path );
-			ERClass.Mystery.totalRecords   = MyFunctions.RecordCount( ERClass.Mystery.path ) - 1;
+			ERClass.Mystery.totalRecords   = MyFunctions.RecordCount( ERClass.Mystery.path );
 
 			string[] readText = File.ReadAllLines( ERClass.Mystery.path );
 
 			// Resize Array of record structs from initial array size [0]
-			Array.Resize( ref ERClass.Mystery.structRecords, ERClass.Mystery.totalRecords - 1 );
+			Array.Resize( ref ERClass.Mystery.structRecords, ERClass.Mystery.totalRecords );
 
 			foreach( string record in readText ) {
 				if ( record.Trim() == "" ) { continue; }
@@ -205,12 +205,12 @@ namespace sharp_structs {
             // Update Class info
 			ERClass.Prayer.path 		  = path;
 			ERClass.Prayer.attributeNames = MyFunctions.ReturnHeaderArray( ERClass.Prayer.path );
-			ERClass.Prayer.totalRecords   = MyFunctions.RecordCount( ERClass.Prayer.path ) - 1;
+			ERClass.Prayer.totalRecords   = MyFunctions.RecordCount( ERClass.Prayer.path );
 
 			string[] readText = File.ReadAllLines( ERClass.Prayer.path );
 
 			// Resize Array of record structs from initial array size [0]
-			Array.Resize( ref ERClass.Prayer.structRecords, ERClass.Prayer.totalRecords - 1 );
+			Array.Resize( ref ERClass.Prayer.structRecords, ERClass.Prayer.totalRecords );
 
 			foreach( string record in readText ) {
 				if ( record.Trim() == "" ) { continue; }
@@ -236,12 +236,12 @@ namespace sharp_structs {
             // Update Class info
 			ERClass.Scripture.path 		     = path;
 			ERClass.Scripture.attributeNames = MyFunctions.ReturnHeaderArray( ERClass.Scripture.path );
-			ERClass.Scripture.totalRecords   = MyFunctions.RecordCount( ERClass.Scripture.path ) - 1;
+			ERClass.Scripture.totalRecords   = MyFunctions.RecordCount( ERClass.Scripture.path );
 
 			string[] readText = File.ReadAllLines( ERClass.Scripture.path );
 
 			// Resize Array of record structs from initial array size [0]
-			Array.Resize( ref ERClass.Scripture.structRecords, ERClass.Scripture.totalRecords - 1 );
+			Array.Resize( ref ERClass.Scripture.structRecords, ERClass.Scripture.totalRecords );
 
 			foreach( string record in readText ) {
 				if ( record.Trim() == "" ) { continue; }
@@ -314,6 +314,7 @@ namespace sharp_structs {
 				if ( s.Trim() == "" ) { continue; } // skip empty lines
 				count++;
 			}
+            count--;
 
 			return count;
 		}
