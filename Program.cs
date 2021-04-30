@@ -9,7 +9,7 @@ namespace sharp_structs {
 
             Console.WriteLine( "# Demo2: Preview bead.csv ER class\n" );
 
-            // Class Arrtibute
+            // Class Attributes
             string csvFile = MyFunctions.CsvFilePath( "bead.csv" );
             string[] headerAttr = MyFunctions.ReturnHeaderArray( csvFile );
 

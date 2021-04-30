@@ -23,7 +23,7 @@ dotnet run
 
 Win10
 ```bat
-:: rem previous bulds and initialize with *.txt script *.cs
+:: rem previous builds and initialize with *.txt script *.cs
 
 .\dotnet-new-console-win10.bat
 
