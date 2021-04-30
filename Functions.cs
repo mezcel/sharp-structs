@@ -72,36 +72,6 @@ namespace sharp_structs {
 			}
 		}
 
-        public static void BeadTwo( string path ) {
-
-			int csvLineCount  = 0;
-			int recordIndex   = 0;
-
-            // Update Class info
-			ERClass.Bead.path 		    = path;
-			ERClass.Bead.attributeNames	= MyFunctions.ReturnHeaderArray( ERClass.Bead.path );
-			ERClass.Bead.totalRecords 	= MyFunctions.RecordCount( ERClass.Bead.path );
-
-			string[] readText = File.ReadAllLines( ERClass.Bead.path );
-
-			// Resize Array of record structs from initial array size [0]
-			Array.Resize( ref ERClass.Bead.structRecords, ERClass.Bead.totalRecords - 1 );
-
-			foreach( string record in readText ) {
-				if ( record.Trim() == "" ) { continue; }
-
-				if ( csvLineCount > 0 && csvLineCount < ERClass.Bead.totalRecords ) {
-					string[] fields = record.Split(';');
-					recordIndex = csvLineCount - 1;
-
-					ERClass.Bead.structRecords[recordIndex].beadID 	= Int32.Parse( fields[0] );
-					ERClass.Bead.structRecords[recordIndex].beadType = fields[1];
-				}
-
-				csvLineCount++;
-			}
-		}
-
 		public static void Book( string path ) {
 
 			int csvLineCount  = 0;
@@ -395,6 +365,11 @@ namespace sharp_structs {
 			Console.WriteLine( " Importing: " + csvName + "\t\t...\tms: " + DateTime.Now.Millisecond );
             path = MyFunctions.CsvFilePath( csvName );
             PopulateER.Bead( path );
+
+			csvName = "book.csv";
+			Console.WriteLine( " Importing: " + csvName + "\t\t...\tms: " + DateTime.Now.Millisecond );
+            path = MyFunctions.CsvFilePath( csvName );
+            PopulateER.Book( path );
 
 			csvName = "decade.csv";
 			Console.WriteLine( " Importing: " + csvName + "\t\t...\tms: " + DateTime.Now.Millisecond );

@@ -36,24 +36,24 @@ namespace sharp_structs {
         static void DemoPreviewDB() {
 
             Console.WriteLine( "\n# Demo: Preview DB class size and attribute count\n" );
-            Console.WriteLine( " class array              \trecords\tfields" );
-            Console.WriteLine( " -------------------------\t-------\t------" );
+            Console.WriteLine( " class array              \t\trecords\tfields" );
+            Console.WriteLine( " -------------------------\t\t-------\t------" );
 
-            Console.WriteLine( " ERClass.rosaryBead_dbArray\t" + ERClass.RosaryBead.structRecords.Length + "\t " + ERClass.RosaryBead.totalRecords );
+            Console.WriteLine( " ERClass.RosaryBead.structRecords\t" + ERClass.RosaryBead.structRecords.Length + "\t " + ERClass.RosaryBead.attributeNames.Length );
 
-            Console.WriteLine( " ERClass.bead_dbArray\t\t" + ERClass.Bead.structRecords.Length + "\t " + ERClass.Bead.totalRecords );
+            Console.WriteLine( " ERClass.Bead.structRecords\t\t" + ERClass.Bead.totalRecords + "\t " + ERClass.Bead.attributeNames.Length );
 
-            Console.WriteLine( " ERClass.book_dbArray\t\t" + ERClass.Book.structRecords.Length + "\t " + ERClass.Book.totalRecords );
+            Console.WriteLine( " ERClass.Book.structRecords\t\t" + ERClass.Book.totalRecords + "\t " + ERClass.Book.attributeNames.Length );
 
-            Console.WriteLine( " ERClass.decade_dbArray\t\t" + ERClass.Decade.structRecords.Length + "\t " + ERClass.Decade.totalRecords );
+            Console.WriteLine( " ERClass.Decade.structRecords\t\t" + ERClass.Decade.totalRecords + "\t " + ERClass.Decade.attributeNames.Length );
 
-            Console.WriteLine( " ERClass.message_dbArray\t" + ERClass.Message.structRecords.Length + "\t " + ERClass.Message.totalRecords );
+            Console.WriteLine( " ERClass.Message.structRecords\t\t" + ERClass.Message.totalRecords + "\t " + ERClass.Message.attributeNames.Length );
 
-            Console.WriteLine( " ERClass.mystery_dbArray\t" + ERClass.Mystery.structRecords.Length + "\t " + ERClass.Mystery.totalRecords );
+            Console.WriteLine( " ERClass.Mystery.structRecords\t\t" + ERClass.Mystery.totalRecords + "\t " + ERClass.Mystery.attributeNames.Length );
 
-            Console.WriteLine( " ERClass.prayer_dbArray\t\t" + ERClass.Prayer.structRecords.Length + "\t " + ERClass.Prayer.totalRecords );
+            Console.WriteLine( " ERClass.Prayer.structRecords\t\t" + ERClass.Prayer.totalRecords + "\t " + ERClass.Prayer.attributeNames.Length );
 
-            Console.WriteLine( " ERClass.scripture_dbArray\t" + ERClass.Scripture.structRecords.Length + "\t " + ERClass.Scripture.totalRecords );
+            Console.WriteLine( " ERClass.Scripture.structRecords\t" + ERClass.Scripture.totalRecords + "\t " + ERClass.Scripture.attributeNames.Length );
 
         }
 
