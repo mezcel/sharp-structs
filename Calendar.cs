@@ -9,11 +9,6 @@ using System; // DateTime
 namespace sharp_structs {
 
     public class CalendarCalculations {
-		/*public static DateTime ReturnToday() {
-			DateTime today = DateTime.Now;
-			return today;
-		}*/
-
         public static string TodaysMysteryName( DateTime today ) {
 			// DateTime today = DateTime.Now;
 
@@ -38,6 +33,17 @@ namespace sharp_structs {
 
 			return mysteryName;
 		}
+
+        public static int InitialMystery() {
+            DateTime today = DateTime.Now;
+            int weekdayNo = (int)today.DayOfWeek;
+            int[] navigtionPosition = { 237, 0, 158, 237, 79, 158, 0 };
+
+            if ( ( weekdayNo > 6 ) || ( weekdayNo < 0 ) ) {
+                weekdayNo = 0;
+            }
+            return navigtionPosition[ weekdayNo ];
+        }
 
 	}
 }

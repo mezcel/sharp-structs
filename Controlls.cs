@@ -44,6 +44,34 @@ namespace sharp_structs {
             Console.WriteLine( "\t\t"           + ERView.meditationPoint_t.prayerText );
         }
 
+        public static void DisplayAbout() {
+            string about = "This program is a scripture rosary for the command line interface ( CLI ). This app reads from a scripture database arranged in an ER schema. English readings are quoted from The New American Bible ( CSV files ).";
+            string vimKeys = "Use vim keys to navigate. Use h/l for backwards and forward. Use j/k to display help. Use Esc key to quit.";
+
+            DateTime today = DateTime.Now;
+            string todaysMystery = CalendarCalculations.TodaysMysteryName( today );
+
+            Console.Clear();            // clear console
+
+            Console.WriteLine( " About:" );
+            Console.WriteLine( "\t\t" + about );
+            Console.WriteLine( "" );
+
+            Console.WriteLine( " Controlls:" );
+            Console.WriteLine( "\t\t" + vimKeys );
+            Console.WriteLine( "" );
+
+            Console.WriteLine( " Date:" );
+            Console.WriteLine( "\t\tThe day of the week for {0:d} is {1}.", today.DayOfWeek, today.DayOfWeek );
+            Console.WriteLine( "\t\t" + today.ToString("dddd, dd MMMM yyyy") );
+            Console.WriteLine( "\t\tMystery of the day: " + todaysMystery );
+
+            Console.WriteLine( "\nPress any key to continue." );
+            Console.ReadKey();
+
+        }
+
+
     }
 
     public class UserInput {
@@ -55,14 +83,23 @@ namespace sharp_structs {
 
 			switch( keyString ) {
 				case "q" or "Q" or "Escape" : // Quit Application
-                    Console.WriteLine( "Terminated Application.\t" + keyString );
+                    Console.WriteLine( "\n\t_Terminated Application." );
                     Environment.Exit(0);
 					break;
                 case "l" or "L" or "Enter" or "RightArrow" or "Spacebar": // Next
                     i++;
+                    if ( i > ERClass.RosaryBead.totalRecords ) {
+                        i = 1;
+                    }
 					break;
                 case "h" or "H" or "LeftArrow": // Next
                     i--;
+                    if ( i < 0 ) {
+                        i = ERClass.RosaryBead.totalRecords ;
+                    }
+					break;
+                case "j" or "J" or "k" or "K": // About
+                    RenderDisplay.DisplayAbout();
 					break;
                 default:
                     //Console.WriteLine( "\nk.Key: " + k.Key + "\tkeyString: " + keyString + "\n" );

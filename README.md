@@ -2,7 +2,7 @@
 
 Csharp console application which converts csv to struct to perform ER queries.
 
-Based on the CSV ER Database from [printf-time.git](https://github.com/mezcel/printf-time.git)
+Csharp version of the CSV ER Database from [printf-time.git](https://github.com/mezcel/printf-time.git)
 
 ---
 

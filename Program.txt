@@ -26,19 +26,6 @@ namespace sharp_structs {
             Console.WriteLine( " ERClass.Feast\t\t" + ERClass.Feast.structRecords.Length + "\t " + ERClass.Feast.attributeNames.Length );
         }
 
-        static void DemoMysteryQuery() {
-            DateTime today = DateTime.Now;
-
-            Console.WriteLine( "\n# Demo: Query the mystery of the day\n" );
-
-            Console.WriteLine( " The day of the week for {0:d} is {1}.", today.DayOfWeek, today.DayOfWeek );
-            Console.WriteLine( "\t" + today.ToString("dddd, dd MMMM yyyy") );
-
-            string todaysMystery = CalendarCalculations.TodaysMysteryName( today );
-            Console.WriteLine( "\tMystery of the day: " + todaysMystery );
-
-        }
-
         static void Main(string[] args) {
             Console.Clear();            // clear console
 
@@ -49,14 +36,15 @@ namespace sharp_structs {
 
             //MyFunctions.GetOsInfo();         // display OS info
             MyFunctions.ImportCsvDatabase(); // import csv files into a struct ER DB
+            //DemoPreviewDB();
 
-            DemoPreviewDB();            // demo ER DB
-            DemoMysteryQuery();         // demo query
+            Console.WriteLine( "\nPress any key to continue." );
+            Console.ReadKey();
+            RenderDisplay.DisplayAbout();
 
-            Console.ReadLine();
+            int i = CalendarCalculations.InitialMystery();
 
-            int i = 0;
-            while ( i < ERClass.RosaryBead.totalRecords ) {
+            while ( i <= ERClass.RosaryBead.totalRecords ) {
                 Console.Clear();        // clear console
 
                 RenderDisplay.UpdateMainView( i );
