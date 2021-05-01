@@ -1,3 +1,10 @@
+/*
+    Structs.cs
+    About:
+        ER Database objects
+        Define entity classes
+*/
+
 namespace sharp_structs {
 
 	public class ERClass {

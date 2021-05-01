@@ -1,3 +1,9 @@
+/*
+    Functions.cs
+    About:
+        Miscelaneous functions and methods.
+*/
+
 using System; // console
 using System.IO; // Environment
 
@@ -430,41 +436,6 @@ namespace sharp_structs {
 			Console.WriteLine( " Importing: " + csvName + "\t...\t\tTimeSpan: " + tDiff + "\tms:" + tDiff.Milliseconds );
 
 			Console.WriteLine( "---\n Import End Time:\t" +  DateTime.Now + "\tTimeSpan: " + tDiffSum + "\tms:" + tDiffSum.Milliseconds  + "\n" );
-		}
-
-	}
-
-	public class CalendarCalculations {
-		public static DateTime ReturnToday() {
-			DateTime today = DateTime.Now;
-			return today;
-		}
-
-	}
-
-    public class RosaryMethods {
-		public static string TodaysMysteryName( DateTime today ) {
-
-			int weekdayIndex = (int)today.DayOfWeek;
-
-			switch( weekdayIndex ) {
-				case 0 or 3:
-					weekdayIndex = 4;
-					break;
-				case 1 or 6:
-					weekdayIndex = 1;
-					break;
-				case 2 or 5:
-					weekdayIndex = 3;
-					break;
-				case 4:
-					weekdayIndex = 2;
-					break;
-			}
-
-			string mysteryName = ERClass.Mystery.structRecords[ weekdayIndex ].mysteryName;
-
-			return mysteryName;
 		}
 
 	}

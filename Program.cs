@@ -1,4 +1,10 @@
-﻿using System; // console
+﻿/*
+    Program.cs
+    About:
+        Main()
+*/
+
+using System; // console
 
 namespace sharp_structs {
 
@@ -49,14 +55,14 @@ namespace sharp_structs {
         }
 
         static void DemoMysteryQuery() {
-            DateTime today = CalendarCalculations.ReturnToday();
+            DateTime today = DateTime.Now;
 
             Console.WriteLine( "\n# Demo: Query the mystery of the day\n" );
 
             Console.WriteLine( " The day of the week for {0:d} is {1}.", today.DayOfWeek, today.DayOfWeek );
             Console.WriteLine( "\t" + today.ToString("dddd, dd MMMM yyyy") );
 
-            string todaysMystery = RosaryMethods.TodaysMysteryName( today );
+            string todaysMystery = CalendarCalculations.TodaysMysteryName( today );
             Console.WriteLine( "\tMystery of the day: " + todaysMystery );
 
         }
@@ -69,11 +75,11 @@ namespace sharp_structs {
             Console.WriteLine("## ################# ##");
             Console.WriteLine("");
 
-            MyFunctions.GetOsInfo();         // display OS info
+            //MyFunctions.GetOsInfo();         // display OS info
             MyFunctions.ImportCsvDatabase(); // import csv files into a struct ER DB
 
-            DemoBeadER();               // demo ER Class
             DemoPreviewDB();            // demo ER DB
+            //DemoBeadER();               // demo ER Class
             DemoMysteryQuery();         // demo query
 
             Console.WriteLine("");
