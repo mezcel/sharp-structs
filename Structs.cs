@@ -155,6 +155,42 @@ namespace sharp_structs {
                 // Array.Resize( ref ERClass.Scripture.structRecords, ERClass.Scripture.totalRecords );
 		}
 
+		public class Feast {
+			/* ER Class Struct: Bead */
+
+			public static string csvBaseName = "feast.csv";
+			public static string path; 				// = MyFunctions.CsvFilePath( csvBaseName );
+			public static string[] attributeNames; 	// = MyFunctions.ReturnHeaderArray( path );
+			public static int totalRecords = 0;     // = MyFunctions.RecordCount( path );
+
+			// Attribute metadata
+			public struct feast_t {
+				public int feastID;
+				public string feastName;
+				public int feastDay;
+				public int feastMonth;
+				public string monthName;
+			}
+			public static feast_t[] structRecords = new feast_t[ totalRecords ];
+                // Array.Resize( ref ERClass.Feast.structRecords, ERClass.Feast.totalRecords );
+		}
+
 	}
+
+    public class ERView {
+        public struct meditationPoint_t {
+				public static int rosaryBeadID = 0;
+                public static string beadType;
+				public static string decadeName;
+				public static string decadeInfo;
+				public static int mysteryNo;
+				public static string mysteryName;
+				public static string prayerName;
+				public static string prayerText;
+				public static string scriptureText;
+				public static string mesageText;
+
+        }
+    }
 
 }

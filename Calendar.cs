@@ -38,5 +38,6 @@ namespace sharp_structs {
 
 			return mysteryName;
 		}
+
 	}
 }

@@ -267,6 +267,38 @@ namespace sharp_structs {
 			}
 		}
 
+        public static void Feast( string path ) {
+
+			int csvLineCount  = 0;
+			int recordIndex   = 0;
+
+            // Update Class info
+			ERClass.Feast.path 		     = path;
+			ERClass.Feast.attributeNames = MyFunctions.ReturnHeaderArray( ERClass.Scripture.path );
+			ERClass.Feast.totalRecords   = MyFunctions.RecordCount( ERClass.Feast.path );
+
+			string[] readText = File.ReadAllLines( ERClass.Feast.path );
+
+			// Resize Array of record structs from initial array size [0]
+			Array.Resize( ref ERClass.Feast.structRecords, ERClass.Feast.totalRecords );
+
+			foreach( string record in readText ) {
+				if ( record.Trim() == "" ) { continue; }
+
+				if ( csvLineCount > 0 && csvLineCount < ERClass.Feast.totalRecords ) {
+					string[] fields = record.Split(';');
+					recordIndex     = csvLineCount - 1;
+
+					ERClass.Feast.structRecords[recordIndex].feastID    = Int32.Parse( fields[0] );
+					ERClass.Feast.structRecords[recordIndex].feastName  = fields[1];
+					ERClass.Feast.structRecords[recordIndex].feastDay   = Int32.Parse( fields[2] );
+					ERClass.Feast.structRecords[recordIndex].feastMonth = Int32.Parse( fields[3] );
+					ERClass.Feast.structRecords[recordIndex].monthName  = fields[4];
+				}
+
+				csvLineCount++;
+			}
+		}
 	}
 
 	public class MyFunctions {
@@ -434,6 +466,15 @@ namespace sharp_structs {
             tDiff    = t1 - t0;
             tDiffSum += tDiff;
 			Console.WriteLine( " Importing: " + csvName + "\t...\t\tTimeSpan: " + tDiff + "\tms:" + tDiff.Milliseconds );
+
+			csvName = "feast.csv";
+            t0      = DateTime.Now;
+            path    = MyFunctions.CsvFilePath( csvName );
+            PopulateER.Feast( path );
+            t1       = DateTime.Now;
+            tDiff    = t1 - t0;
+            tDiffSum += tDiff;
+			Console.WriteLine( " Importing: " + csvName + "\t\t...\t\tTimeSpan: " + tDiff + "\tms:" + tDiff.Milliseconds );
 
 			Console.WriteLine( "---\n Import End Time:\t" +  DateTime.Now + "\tTimeSpan: " + tDiffSum + "\tms:" + tDiffSum.Milliseconds  + "\n" );
 		}

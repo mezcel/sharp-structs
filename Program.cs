@@ -10,35 +10,6 @@ namespace sharp_structs {
 
     class Program {
 
-        static void DemoBeadER() {
-
-            Console.WriteLine( "# Demo2: Preview bead.csv ER class\n" );
-
-            // Class Attributes
-            string csvFile = MyFunctions.CsvFilePath( "bead.csv" );
-            string[] headerAttr = MyFunctions.ReturnHeaderArray( csvFile );
-
-            Console.WriteLine(
-                " ERClass.Bead.csvBaseName = "          + ERClass.Bead.csvBaseName +
-                "\t\tERClass.Bead.attributes.Length = " + ERClass.Bead.attributeNames.Length );
-
-            Console.WriteLine(
-                " ERClass.Bead.attributes[ 0 ] = "      + ERClass.Bead.attributeNames[0] +
-                "\t\tERClass.Bead.attributes[ 1 ] = "   + ERClass.Bead.attributeNames[1] );
-
-            // Attribute recoed data
-            int i = 0;
-            foreach( ERClass.Bead.bead_t bead in ERClass.Bead.structRecords ) {
-
-                Console.WriteLine(
-                    " ERClass.Bead.structRecords[ " + i + " ].beadID = "    + ERClass.Bead.structRecords[i].beadID +
-                    "\tERClass.Bead.structRecords[ " + i + " ].beadType = " + ERClass.Bead.structRecords[i].beadType );
-
-                i++;
-            }
-
-        }
-
         static void DemoPreviewDB() {
             Console.WriteLine( "\n# Demo: Preview DB class size and attribute count\n" );
             Console.WriteLine( " class array        \trecords\tfields" );
@@ -52,6 +23,7 @@ namespace sharp_structs {
             Console.WriteLine( " ERClass.Mystery\t" + ERClass.Mystery.structRecords.Length + "\t " + ERClass.Mystery.attributeNames.Length );
             Console.WriteLine( " ERClass.Prayer\t\t"  + ERClass.Prayer.structRecords.Length + "\t " + ERClass.Prayer.attributeNames.Length );
             Console.WriteLine( " ERClass.Scripture\t" + ERClass.Scripture.structRecords.Length + "\t " + ERClass.Scripture.attributeNames.Length );
+            Console.WriteLine( " ERClass.Feast\t\t" + ERClass.Feast.structRecords.Length + "\t " + ERClass.Feast.attributeNames.Length );
         }
 
         static void DemoMysteryQuery() {
@@ -79,10 +51,20 @@ namespace sharp_structs {
             MyFunctions.ImportCsvDatabase(); // import csv files into a struct ER DB
 
             DemoPreviewDB();            // demo ER DB
-            //DemoBeadER();               // demo ER Class
             DemoMysteryQuery();         // demo query
 
-            Console.WriteLine("");
+            Console.ReadLine();
+
+            int i = 0;
+            while ( i < ERClass.RosaryBead.totalRecords ) {
+                Console.Clear();        // clear console
+
+                RenderDisplay.UpdateMainView( i );
+                RenderDisplay.DisplayView();
+
+                i = UserInput.KeyNavigation(i);
+            }
+
         }
     }
 }
