@@ -1,7 +1,7 @@
 /*
     Functions.cs
     About:
-        Miscelaneous functions and methods.
+        Miscellaneous functions and methods.
 */
 
 using System; // console
@@ -308,7 +308,7 @@ namespace sharp_structs {
 
 			Console.WriteLine( "# Operation System Information" );
             Console.WriteLine("\tOS Version:   " + os.Version.ToString());
-            Console.WriteLine("\tOS Platoform: " + os.Platform.ToString());
+            Console.WriteLine("\tOS Platform: " + os.Platform.ToString());
             Console.WriteLine("\tOS SP:        " + os.ServicePack.ToString());
             Console.WriteLine("\tOS Version String: " + os.VersionString.ToString());
 			Console.WriteLine("");
@@ -316,7 +316,7 @@ namespace sharp_structs {
             // Get Version details
             Version ver = os.Version;
 
-            Console.WriteLine("# Operating System Detaiils");
+            Console.WriteLine("# Operating System Details");
             Console.WriteLine("\tMajor version:  " + ver.Major);
             Console.WriteLine("\tMajor Revision: " + ver.MajorRevision);
             Console.WriteLine("\tMinor version:  " + ver.Minor);

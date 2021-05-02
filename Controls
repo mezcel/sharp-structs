@@ -80,7 +80,7 @@ namespace sharp_structs {
 
             Console.WriteLine( "" );
             Console.WriteLine( loopBodyString + "\t"+ String.Format("{0:0.##}", smallbeadPercent) + " %\tBead:\t " + beadType );
-            Console.WriteLine( "Rosary Progres:\t\t" + String.Format("{0:0.##}", mysteryPercent) + " %\tMystery: " + mysteryName );
+            Console.WriteLine( "Rosary Progress:\t\t" + String.Format("{0:0.##}", mysteryPercent) + " %\tMystery: " + mysteryName );
         }
 
         public static void DisplayAbout() {
@@ -97,7 +97,7 @@ namespace sharp_structs {
             Console.WriteLine( about );
             Console.WriteLine( "" );
 
-            Console.WriteLine( " Controlls:" );
+            Console.WriteLine( " Controls:" );
             Console.WriteLine( vimKeys );
             Console.WriteLine( "" );
 

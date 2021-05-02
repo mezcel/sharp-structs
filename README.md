@@ -53,7 +53,7 @@ dotnet run
 Assumes CSV files are stored in ```.\database\csv\*.csv```
 
 * Change ```MyFunctions.CsvFilePath( csvBaseName )``` instructions or omit it's usage to import an external ER class.
-    * Manual defintion example:
+    * Manual definition example:
         ```cs
         // base file name
         string csvBaseName = "myCsvFile.csv";
