@@ -59,16 +59,16 @@ namespace sharp_structs {
             string loopBodyString;
             switch( ERView.meditationPoint_t.loopBody ) {
 				case 0 :
-                    loopBodyString = "Introduction Progress:";
+                    loopBodyString = "Introduction Progress:\t";
 					break;
 				case 1 :
-                    loopBodyString = "Decade Progress:";
+                    loopBodyString = "Decade Progress:\t";
 					break;
 				case 2 :
-                    loopBodyString = "Conclusion Progress:";
+                    loopBodyString = "Conclusion Progress:\t";
 					break;
 				default :
-                    loopBodyString = "Transition Progress:";
+                    loopBodyString = "Transition Progress:\t";
 					break;
             }
 
@@ -79,8 +79,8 @@ namespace sharp_structs {
             Console.WriteLine( "Prayer:\t\t"    + prayerText );
 
             Console.WriteLine( "" );
-            Console.WriteLine( loopBodyString + "\t"+ String.Format("{0:0.##}", smallbeadPercent) + " %\tBead:\t " + beadType );
-            Console.WriteLine( "Rosary Progress:\t\t" + String.Format("{0:0.##}", mysteryPercent) + " %\tMystery: " + mysteryName );
+            Console.WriteLine( loopBodyString + String.Format("{0:0.##}", smallbeadPercent) + " %\tBead:\t " + beadType );
+            Console.WriteLine( "Rosary Progress:\t" + String.Format("{0:0.##}", mysteryPercent) + " %\tMystery: " + mysteryName );
         }
 
         public static void DisplayAbout() {

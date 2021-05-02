@@ -4,6 +4,19 @@ Csharp console application which converts csv to struct to perform ER queries.
 
 Csharp version of the CSV ER Database from [printf-time.git](https://github.com/mezcel/printf-time.git)
 
+#### Motivation/Background:
+
+- **History**: Way back before Win10 I made an social ```C#``` rosary app which depended heavily on ADO.Net, a GUI, and multiple networked client computers networked with a host server.
+    - Predicessor project:
+
+        github | elaborate documentation
+        :---: | :---:
+        [rosary.net](https://github.com/mezcel/rosary.net) | [Wiki](https://mezcel.wixsite.com/rosary)
+
+- **Revisit**: In 2021, I revisited the project and made a minimal single user stanalone TTY version.
+    - **Exercise objective**: Instead of ADO/MySql, Tables, and Dictionaries... I just just use a Class/Struct ER database populated with ```*.csv``` data. The ```*.csv``` files are taken from [printf-time.git](https://github.com/mezcel/printf-time.git)
+
+
 ---
 
 ## Initialize and run this .NET Project
