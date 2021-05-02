@@ -26,6 +26,44 @@ namespace sharp_structs {
             Console.WriteLine( " ERClass.Feast\t\t" + ERClass.Feast.structRecords.Length + "\t " + ERClass.Feast.attributeNames.Length );
         }
 
+        static void DemoCalendar() {
+            int year;
+            DateTime easter;
+            string dateDisplay;
+
+            year = 2020;
+            easter = LiturgicalCalendar.Easter(year);
+            dateDisplay = easter.ToString("dddd, dd MMMM yyyy");
+            Console.WriteLine("Easter " + year + " Date: " + dateDisplay );
+
+            year++;
+            easter = LiturgicalCalendar.Easter(year);
+            dateDisplay = easter.ToString("dddd, dd MMMM yyyy");
+            Console.WriteLine("Easter " + year + " Date: " + dateDisplay );
+
+            year++;
+            easter = LiturgicalCalendar.Easter(year);
+            dateDisplay = easter.ToString("dddd, dd MMMM yyyy");
+            Console.WriteLine("Easter " + year + " Date: " + dateDisplay );
+        }
+
+        static void UILoop() {
+            int i = CalendarCalculations.InitialMystery();
+
+            Console.WriteLine( "\nPress any key to continue." );
+            Console.ReadKey();
+            RenderDisplay.DisplayAbout();
+
+            while ( i <= ERClass.RosaryBead.structRecords.Length ) {
+                Console.Clear();        // clear console
+
+                RenderDisplay.UpdateMainView( i );
+                RenderDisplay.DisplayView();
+
+                i = UserInput.KeyNavigation(i);
+            }
+        }
+
         static void Main(string[] args) {
             Console.Clear();            // clear console
 
@@ -37,21 +75,9 @@ namespace sharp_structs {
             //MyFunctions.GetOsInfo();         // display OS info
             MyFunctions.ImportCsvDatabase(); // import csv files into a struct ER DB
             //DemoPreviewDB();
+            DemoCalendar();
 
-            Console.WriteLine( "\nPress any key to continue." );
-            Console.ReadKey();
-            RenderDisplay.DisplayAbout();
-
-            int i = CalendarCalculations.InitialMystery();
-
-            while ( i <= ERClass.RosaryBead.structRecords.Length ) {
-                Console.Clear();        // clear console
-
-                RenderDisplay.UpdateMainView( i );
-                RenderDisplay.DisplayView();
-
-                i = UserInput.KeyNavigation(i);
-            }
+            UILoop(); // Main application UI Loop
 
         }
     }
