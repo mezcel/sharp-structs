@@ -1,7 +1,7 @@
 /*
-    Controlls.cs
+    Controls.cs
     About:
-        UI and progress navigation controlls.
+        UI and progress navigation controls.
 */
 
 using System; // console
