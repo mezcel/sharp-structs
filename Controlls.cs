@@ -40,21 +40,21 @@ namespace sharp_structs {
 
             ERView.meditationPoint_t.smallbeadPercent = ERClass.RosaryBead.structRecords[rosaryBeadID].smallbeadPercent;
             ERView.meditationPoint_t.mysteryPercent   = ERClass.RosaryBead.structRecords[rosaryBeadID].mysteryPercent;
-
         }
 
         public static void DisplayView() {
-            //Console.WriteLine( "Mystery:\t"     + ERView.meditationPoint_t.mysteryName );
-            Console.WriteLine( "Decade:\t\t"    + ERView.meditationPoint_t.decadeName );
-            Console.WriteLine( "Fruit:\t\t"     + ERView.meditationPoint_t.mesageText );
-            Console.WriteLine( "Info:\t\t"      + ERView.meditationPoint_t.decadeInfo + "\n" );
-            Console.WriteLine( "Scripture:\t"   + ERView.meditationPoint_t.scriptureText + "\n");
-            //Console.WriteLine( "Bead:\t\t"      + ERView.meditationPoint_t.beadType );
-            Console.WriteLine( "Prayer:\t\t"    + ERView.meditationPoint_t.prayerName );
-            Console.WriteLine( "\t\t"           + ERView.meditationPoint_t.prayerText );
+
+            string mysteryName  = ERView.meditationPoint_t.mysteryName;
+            string decadeName   = ERView.meditationPoint_t.decadeName;
+            string mesageText   = ERView.meditationPoint_t.mesageText;
+            string decadeInfo   = ERView.meditationPoint_t.decadeInfo;
+            string scriptureText = ERView.meditationPoint_t.scriptureText;
+            string beadType     = ERView.meditationPoint_t.beadType;
+            //string prayerName = ERView.meditationPoint_t.prayerName;
+            string prayerText   = ERView.meditationPoint_t.prayerText;
 
             double smallbeadPercent = ( ERView.meditationPoint_t.smallbeadPercent * 1.00 / 10.00 ) * 100.00;
-            double mysteryPercent = ( ERView.meditationPoint_t.mysteryPercent * 1.00 / 50.00 ) * 100.00;
+            double mysteryPercent   = ( ERView.meditationPoint_t.mysteryPercent * 1.00 / 50.00 ) * 100.00;
 
             string loopBodyString;
             switch( ERView.meditationPoint_t.loopBody ) {
@@ -72,9 +72,15 @@ namespace sharp_structs {
 					break;
             }
 
+            Console.WriteLine( "Decade:\t\t"    + decadeName );
+            Console.WriteLine( "Fruit:\t\t"     + mesageText );
+            Console.WriteLine( "Info:\t\t"      + decadeInfo + "\n" );
+            Console.WriteLine( "Scripture:\t"   + scriptureText + "\n");
+            Console.WriteLine( "Prayer:\t\t"    + prayerText );
+
             Console.WriteLine( "" );
-            Console.WriteLine( loopBodyString + "\t"+ String.Format("{0:0.##}", smallbeadPercent) + " %\tBead:\t " + ERView.meditationPoint_t.beadType);
-            Console.WriteLine( "Rosary Progres:\t\t"    + String.Format("{0:0.##}", mysteryPercent) + " %\tMystery: " + ERView.meditationPoint_t.mysteryName);
+            Console.WriteLine( loopBodyString + "\t"+ String.Format("{0:0.##}", smallbeadPercent) + " %\tBead:\t " + beadType );
+            Console.WriteLine( "Rosary Progres:\t\t" + String.Format("{0:0.##}", mysteryPercent) + " %\tMystery: " + mysteryName );
         }
 
         public static void DisplayAbout() {
@@ -102,7 +108,6 @@ namespace sharp_structs {
 
             Console.WriteLine( "\nPress any key to continue." );
             Console.ReadKey();
-
         }
 
     }
@@ -136,6 +141,7 @@ namespace sharp_structs {
                 default:
                     //Console.WriteLine( "\nk.Key: " + k.Key + "\tkeyString: " + keyString + "\n" );
                     //Environment.Exit(0);
+                    RenderDisplay.DisplayAbout();
                     break;
 			}
 
