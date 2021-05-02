@@ -189,6 +189,9 @@ namespace sharp_structs {
 				public static string prayerText;
 				public static string scriptureText;
 				public static string mesageText;
+				public static int loopBody;
+				public static int smallbeadPercent;
+				public static int mysteryPercent;
 
         }
     }

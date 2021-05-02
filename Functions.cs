@@ -28,7 +28,7 @@ namespace sharp_structs {
 			foreach( string record in readText ) {
 				if ( record.Trim() == "" ) { continue; }
 
-				if ( csvLineCount > 0 && csvLineCount < ERClass.RosaryBead.totalRecords ) {
+				if ( csvLineCount > 0 && csvLineCount <= ERClass.RosaryBead.totalRecords ) {
 					string[] fields = record.Split(';');
 					recordIndex     = csvLineCount - 1;
 
@@ -95,7 +95,7 @@ namespace sharp_structs {
 			foreach( string record in readText ) {
 				if ( record.Trim() == "" ) { continue; }
 
-				if ( csvLineCount > 0 && csvLineCount < ERClass.Book.totalRecords ) {
+				if ( csvLineCount > 0 && csvLineCount <= ERClass.Book.totalRecords ) {
 					string[] fields = record.Split(';');
 					recordIndex     = csvLineCount - 1;
 
@@ -126,7 +126,7 @@ namespace sharp_structs {
 			foreach( string record in readText ) {
 				if ( record.Trim() == "" ) { continue; }
 
-				if ( csvLineCount > 0 && csvLineCount < ERClass.Decade.totalRecords ) {
+				if ( csvLineCount > 0 && csvLineCount <= ERClass.Decade.totalRecords ) {
 					string[] fields = record.Split(';');
 					recordIndex     = csvLineCount - 1;
 
@@ -160,7 +160,7 @@ namespace sharp_structs {
 			foreach( string record in readText ) {
 				if ( record.Trim() == "" ) { continue; }
 
-				if ( csvLineCount > 0 && csvLineCount < ERClass.Message.totalRecords ) {
+				if ( csvLineCount > 0 && csvLineCount <= ERClass.Message.totalRecords ) {
 					string[] fields = record.Split(';');
 					recordIndex     = csvLineCount - 1;
 
@@ -190,7 +190,7 @@ namespace sharp_structs {
 			foreach( string record in readText ) {
 				if ( record.Trim() == "" ) { continue; }
 
-				if ( csvLineCount > 0 && csvLineCount < ERClass.Mystery.totalRecords ) {
+				if ( csvLineCount > 0 && csvLineCount <= ERClass.Mystery.totalRecords ) {
 					string[] fields = record.Split(';');
 					recordIndex     = csvLineCount - 1;
 
@@ -221,7 +221,7 @@ namespace sharp_structs {
 			foreach( string record in readText ) {
 				if ( record.Trim() == "" ) { continue; }
 
-				if ( csvLineCount > 0 && csvLineCount < ERClass.Prayer.totalRecords ) {
+				if ( csvLineCount > 0 && csvLineCount <= ERClass.Prayer.totalRecords ) {
 					string[] fields = record.Split(';');
 					recordIndex     = csvLineCount - 1;
 
@@ -252,7 +252,7 @@ namespace sharp_structs {
 			foreach( string record in readText ) {
 				if ( record.Trim() == "" ) { continue; }
 
-				if ( csvLineCount > 0 && csvLineCount < ERClass.Scripture.totalRecords ) {
+				if ( csvLineCount > 0 && csvLineCount <= ERClass.Scripture.totalRecords ) {
 					string[] fields = record.Split(';');
 					recordIndex     = csvLineCount - 1;
 
@@ -285,7 +285,7 @@ namespace sharp_structs {
 			foreach( string record in readText ) {
 				if ( record.Trim() == "" ) { continue; }
 
-				if ( csvLineCount > 0 && csvLineCount < ERClass.Feast.totalRecords ) {
+				if ( csvLineCount > 0 && csvLineCount <= ERClass.Feast.totalRecords ) {
 					string[] fields = record.Split(';');
 					recordIndex     = csvLineCount - 1;
 

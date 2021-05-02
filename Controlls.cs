@@ -11,16 +11,15 @@ namespace sharp_structs {
         public static void UpdateMainView( int position ) {
 			int rosaryBeadID, beadIndex, decadeIndex, mysteryIndex, prayerIndex, scriptureIndex, messageIndex;
 
-            rosaryBeadID    = position; // ERClass.RosaryBead.structRecords[ position ].rosaryBeadID;
+            rosaryBeadID    = ERClass.RosaryBead.structRecords[ position ].rosaryBeadID;
             beadIndex       = ERClass.RosaryBead.structRecords[ position ].beadIndex;
             decadeIndex     = ERClass.RosaryBead.structRecords[ position ].decadeIndex;
             mysteryIndex    = ERClass.RosaryBead.structRecords[ position ].mysteryIndex;
-            prayerIndex     = ERClass.RosaryBead.structRecords[ position ].prayerIndex;;
+            prayerIndex     = ERClass.RosaryBead.structRecords[ position ].prayerIndex;
             scriptureIndex  = ERClass.RosaryBead.structRecords[ position ].scriptureIndex;
             messageIndex    = ERClass.RosaryBead.structRecords[ position ].messageIndex;
 
-
-            ERView.meditationPoint_t.rosaryBeadID   = position; // ERClass.RosaryBead.structRecords[rosaryBeadID].rosaryBeadID;
+            ERView.meditationPoint_t.rosaryBeadID   = ERClass.RosaryBead.structRecords[rosaryBeadID].rosaryBeadID;
             ERView.meditationPoint_t.beadType       = ERClass.Bead.structRecords[beadIndex].beadType;
             ERView.meditationPoint_t.decadeName     = ERClass.Decade.structRecords[decadeIndex].decadeName;
             ERView.meditationPoint_t.decadeInfo     = ERClass.Decade.structRecords[decadeIndex].decadeInfo;
@@ -31,22 +30,57 @@ namespace sharp_structs {
             ERView.meditationPoint_t.scriptureText  = ERClass.Scripture.structRecords[scriptureIndex].scriptureText;
             ERView.meditationPoint_t.mesageText     = ERClass.Message.structRecords[messageIndex].mesageText;
 
+            ERView.meditationPoint_t.loopBody         = ERClass.RosaryBead.structRecords[rosaryBeadID].loopBody;
+
+            if ( ERView.meditationPoint_t.loopBody == 0 ) {
+                if ( ( prayerIndex == 7 ) || ( prayerIndex == 8 ) ) {
+                    ERView.meditationPoint_t.loopBody = 2;
+                }
+            }
+
+            ERView.meditationPoint_t.smallbeadPercent = ERClass.RosaryBead.structRecords[rosaryBeadID].smallbeadPercent;
+            ERView.meditationPoint_t.mysteryPercent   = ERClass.RosaryBead.structRecords[rosaryBeadID].mysteryPercent;
+
         }
 
         public static void DisplayView() {
-            Console.WriteLine( "Mystery:\t"   + ERView.meditationPoint_t.mysteryName );
+            //Console.WriteLine( "Mystery:\t"     + ERView.meditationPoint_t.mysteryName );
             Console.WriteLine( "Decade:\t\t"    + ERView.meditationPoint_t.decadeName );
             Console.WriteLine( "Fruit:\t\t"     + ERView.meditationPoint_t.mesageText );
             Console.WriteLine( "Info:\t\t"      + ERView.meditationPoint_t.decadeInfo + "\n" );
             Console.WriteLine( "Scripture:\t"   + ERView.meditationPoint_t.scriptureText + "\n");
-            Console.WriteLine( "Bead:\t\t"        + ERView.meditationPoint_t.beadType );
+            //Console.WriteLine( "Bead:\t\t"      + ERView.meditationPoint_t.beadType );
             Console.WriteLine( "Prayer:\t\t"    + ERView.meditationPoint_t.prayerName );
             Console.WriteLine( "\t\t"           + ERView.meditationPoint_t.prayerText );
+
+            double smallbeadPercent = ( ERView.meditationPoint_t.smallbeadPercent * 1.00 / 10.00 ) * 100.00;
+            double mysteryPercent = ( ERView.meditationPoint_t.mysteryPercent * 1.00 / 50.00 ) * 100.00;
+
+            string loopBodyString;
+            switch( ERView.meditationPoint_t.loopBody ) {
+				case 0 :
+                    loopBodyString = "Introduction Progress:";
+					break;
+				case 1 :
+                    loopBodyString = "Decade Progress:";
+					break;
+				case 2 :
+                    loopBodyString = "Conclusion Progress:";
+					break;
+				default :
+                    loopBodyString = "Transition Progress:";
+					break;
+            }
+
+            Console.WriteLine( "" );
+            Console.WriteLine( loopBodyString + "\t"+ String.Format("{0:0.##}", smallbeadPercent) + " %\tBead:\t " + ERView.meditationPoint_t.beadType);
+            Console.WriteLine( "Rosary Progres:\t\t"    + String.Format("{0:0.##}", mysteryPercent) + " %\tMystery: " + ERView.meditationPoint_t.mysteryName);
         }
 
         public static void DisplayAbout() {
-            string about = "This program is a scripture rosary for the command line interface ( CLI ). This app reads from a scripture database arranged in an ER schema. English readings are quoted from The New American Bible ( CSV files ).";
-            string vimKeys = "Use vim keys to navigate. Use h/l for backwards and forward. Use j/k to display help. Use Esc key to quit.";
+            string about = "\t\tThis program is a scripture rosary for the command line interface ( CLI ).\n\t\tThis app reads from a scripture database arranged in an ER schema.\n\t\tEnglish readings are quoted from The New American Bible ( CSV files ).";
+
+            string vimKeys = "\t\tUse vim keys to navigate.\n\t\tUse h/l for backwards and forward.\n\t\tUse j/k to display help.\n\t\tUse Esc key to quit.";
 
             DateTime today = DateTime.Now;
             string todaysMystery = CalendarCalculations.TodaysMysteryName( today );
@@ -54,11 +88,11 @@ namespace sharp_structs {
             Console.Clear();            // clear console
 
             Console.WriteLine( " About:" );
-            Console.WriteLine( "\t\t" + about );
+            Console.WriteLine( about );
             Console.WriteLine( "" );
 
             Console.WriteLine( " Controlls:" );
-            Console.WriteLine( "\t\t" + vimKeys );
+            Console.WriteLine( vimKeys );
             Console.WriteLine( "" );
 
             Console.WriteLine( " Date:" );
@@ -71,7 +105,6 @@ namespace sharp_structs {
 
         }
 
-
     }
 
     public class UserInput {
@@ -80,25 +113,24 @@ namespace sharp_structs {
             ConsoleKeyInfo k = Console.ReadKey();
             string keyString = k.Key.ToString();
 
-
 			switch( keyString ) {
-				case "q" or "Q" or "Escape" : // Quit Application
+				case "q" or "Q" or "Escape" :                               // Quit Application
                     Console.WriteLine( "\n\t_Terminated Application." );
                     Environment.Exit(0);
 					break;
-                case "l" or "L" or "Enter" or "RightArrow" or "Spacebar": // Next
+                case "l" or "L" or "Enter" or "RightArrow" or "Spacebar":   // Next
                     i++;
-                    if ( i > ERClass.RosaryBead.totalRecords ) {
-                        i = 1;
+                    if ( i >= ERClass.RosaryBead.totalRecords ) {
+                        i = 0;
                     }
 					break;
-                case "h" or "H" or "LeftArrow": // Next
+                case "h" or "H" or "LeftArrow":                             // Previous
+                    if ( i == 0 ) {
+                        i = ERClass.RosaryBead.totalRecords;
+                    }
                     i--;
-                    if ( i < 0 ) {
-                        i = ERClass.RosaryBead.totalRecords ;
-                    }
 					break;
-                case "j" or "J" or "k" or "K": // About
+                case "j" or "J" or "k" or "K":                              // About
                     RenderDisplay.DisplayAbout();
 					break;
                 default:

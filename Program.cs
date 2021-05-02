@@ -44,7 +44,7 @@ namespace sharp_structs {
 
             int i = CalendarCalculations.InitialMystery();
 
-            while ( i <= ERClass.RosaryBead.totalRecords ) {
+            while ( i <= ERClass.RosaryBead.structRecords.Length ) {
                 Console.Clear();        // clear console
 
                 RenderDisplay.UpdateMainView( i );
