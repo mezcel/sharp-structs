@@ -4,6 +4,8 @@
 rem bin
 rem obj
 rem *.csproj
+rem *.dll
+rem *.pdb
 
 :: init new dotnet project
 dotnet clean
