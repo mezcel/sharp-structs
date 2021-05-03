@@ -6,7 +6,10 @@ obj/*
 PPDATA/*
 
 *.exe
+*.dll
+*.pdb
 *.csproj
+
 *.deb
 
 #Program.cs
