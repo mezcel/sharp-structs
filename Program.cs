@@ -45,8 +45,8 @@ namespace sharp_structs {
 
             // Display Calendar struct
 
-            //dateDisplay = LiturgicalCalendar.LiturgicalFlags.Dec1.ToString("dddd, dd MMMM yyyy");
-            //Console.WriteLine( "Dec1:\t\t\tDate: " + dateDisplay );
+            dateDisplay = LiturgicalCalendar.LiturgicalFlags.ApostleStAndrew.ToString("dddd, dd MMMM yyyy");
+            Console.WriteLine( "ApostleStAndrew:\tDate: " + dateDisplay );
 
             dateDisplay = LiturgicalCalendar.LiturgicalFlags.AdventSunday.ToString("dddd, dd MMMM yyyy");
             Console.WriteLine( "AdventSunday:\t\tDate: " + dateDisplay );
