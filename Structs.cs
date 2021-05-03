@@ -196,5 +196,4 @@ namespace sharp_structs {
         }
     }
 
-
 }

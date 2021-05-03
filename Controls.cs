@@ -8,7 +8,9 @@ using System; // console
 
 namespace sharp_structs {
     public class RenderDisplay {
+
         public static void UpdateMainView( int position ) {
+
 			int rosaryBeadID, beadIndex, decadeIndex, mysteryIndex, prayerIndex, scriptureIndex, messageIndex;
 
             rosaryBeadID    = ERClass.RosaryBead.structRecords[ position ].rosaryBeadID;

@@ -45,9 +45,77 @@ namespace sharp_structs {
             return navigtionPosition[ weekdayNo ];
         }
 
+        public static DateTime NearestSunday( DateTime inputDate ) {
+            DateTime sundayDate;
+            int weekdyaNo, dayDiff;
+
+            weekdyaNo = (int)inputDate.DayOfWeek;
+            dayDiff = 0;
+
+            if ( weekdyaNo > 3 ) {
+                dayDiff = 7 - weekdyaNo;
+            } else {
+                dayDiff = 0 - weekdyaNo;
+            }
+
+            sundayDate = inputDate.AddDays( dayDiff );
+
+            return sundayDate;
+        }
+
+        public static bool IsWithinDates( DateTime inputDate, DateTime startDate, DateTime endDate ) {
+            bool isWithin = false;
+
+            if ( inputDate >= startDate && inputDate < endDate ) {
+                isWithin = true;
+            }
+
+            return isWithin;
+        }
 	}
 
     public class LiturgicalCalendar {
+        public struct LiturgicalFlags {
+            public static int year;
+            public static DateTime StartAdvent;
+            public static DateTime AdventSunday;
+            public static DateTime ChristmadDay;
+            public static DateTime Dec31;
+            public static DateTime SolemnityOfMary;
+            public static DateTime Epiphany;
+            public static DateTime EpiphanySunday;
+            public static DateTime Baptism;
+            public static DateTime StartFirstOrdinaryTime;
+            public static DateTime Easter;
+            public static DateTime AshWednesday;
+            public static DateTime Ascension;
+            public static DateTime AscensionSunday;
+            public static DateTime Pentacost;
+            public static DateTime PentacostSunday;
+            public static DateTime StartSecondOrdinaryTime;
+        }
+
+        public static void PopulateLiturgicalFlags( DateTime inputDate ) {
+
+            LiturgicalCalendar.LiturgicalFlags.year = inputDate.Year;
+
+            LiturgicalCalendar.LiturgicalFlags.StartAdvent      = new DateTime( LiturgicalCalendar.LiturgicalFlags.year - 1, 12, 1);
+            LiturgicalCalendar.LiturgicalFlags.AdventSunday     = CalendarCalculations.NearestSunday( LiturgicalCalendar.LiturgicalFlags.StartAdvent );
+            LiturgicalCalendar.LiturgicalFlags.ChristmadDay     = new DateTime( LiturgicalCalendar.LiturgicalFlags.year - 1, 12, 25);
+            LiturgicalCalendar.LiturgicalFlags.Dec31            = new DateTime( LiturgicalCalendar.LiturgicalFlags.year - 1, 12, 31);
+            LiturgicalCalendar.LiturgicalFlags.SolemnityOfMary  = new DateTime( LiturgicalCalendar.LiturgicalFlags.year, 1, 1);
+            LiturgicalCalendar.LiturgicalFlags.Epiphany         = LiturgicalCalendar.LiturgicalFlags.ChristmadDay.AddDays( 12 );
+            LiturgicalCalendar.LiturgicalFlags.EpiphanySunday   = CalendarCalculations.NearestSunday( LiturgicalCalendar.LiturgicalFlags.Epiphany );
+            LiturgicalCalendar.LiturgicalFlags.Baptism          = LiturgicalCalendar.LiturgicalFlags.EpiphanySunday.AddDays( 7 );
+            LiturgicalCalendar.LiturgicalFlags.StartFirstOrdinaryTime = LiturgicalCalendar.LiturgicalFlags.Baptism.AddDays( 1 );
+            LiturgicalCalendar.LiturgicalFlags.Easter           = LiturgicalCalendar.Easter( LiturgicalCalendar.LiturgicalFlags.year );
+            LiturgicalCalendar.LiturgicalFlags.AshWednesday     = LiturgicalCalendar.LiturgicalFlags.Easter.AddDays( -46 );
+            LiturgicalCalendar.LiturgicalFlags.Ascension        = LiturgicalCalendar.LiturgicalFlags.Easter.AddDays( 39 );
+            LiturgicalCalendar.LiturgicalFlags.AscensionSunday  = CalendarCalculations.NearestSunday( LiturgicalCalendar.LiturgicalFlags.Ascension );
+            LiturgicalCalendar.LiturgicalFlags.Pentacost        = LiturgicalCalendar.LiturgicalFlags.Easter.AddDays( 49 );
+            LiturgicalCalendar.LiturgicalFlags.PentacostSunday  = CalendarCalculations.NearestSunday( LiturgicalCalendar.LiturgicalFlags.Pentacost );
+            LiturgicalCalendar.LiturgicalFlags.StartSecondOrdinaryTime = LiturgicalCalendar.LiturgicalFlags.Easter.AddDays( 50 );
+        }
         public static DateTime Easter( int year ) {
             int a, b, c, d, e, f, g, h, i, k, l, m, month, day;
 
@@ -69,6 +137,51 @@ namespace sharp_structs {
             DateTime date = new DateTime(year, month, day);;
 
             return date;
+        }
+
+        public static bool IsAdvent( DateTime today ) {
+            DateTime startDate = LiturgicalCalendar.LiturgicalFlags.StartAdvent ;
+            DateTime endDate = LiturgicalCalendar.LiturgicalFlags.Dec31;
+
+            bool isAdvent = CalendarCalculations.IsWithinDates( today, startDate, endDate );
+
+            return isAdvent;
+        }
+        public static bool IsChristmas( DateTime today ) {
+            DateTime startDate = LiturgicalCalendar.LiturgicalFlags.Dec31;
+            DateTime endDate = LiturgicalCalendar.LiturgicalFlags.Baptism;
+
+            bool isChristmas = CalendarCalculations.IsWithinDates( today, startDate, endDate );
+
+            return isChristmas;
+        }
+        public static bool IsLent( DateTime today ) {
+            DateTime startDate = LiturgicalCalendar.LiturgicalFlags.AshWednesday;
+            DateTime endDate = LiturgicalCalendar.LiturgicalFlags.Easter;
+
+            bool isAdvent = CalendarCalculations.IsWithinDates( today, startDate, endDate );
+
+            return isAdvent;
+        }
+        public static bool IsEaster( DateTime today ) {
+            DateTime startDate = LiturgicalCalendar.LiturgicalFlags.Easter;
+            DateTime endDate = LiturgicalCalendar.LiturgicalFlags.PentacostSunday;
+
+            bool isEaster = CalendarCalculations.IsWithinDates( today, startDate, endDate );
+
+            return isEaster;
+        }
+        public static bool IsOrdinary( DateTime today ) {
+            DateTime startDate1 = LiturgicalCalendar.LiturgicalFlags.StartFirstOrdinaryTime;
+            DateTime endDate1 = LiturgicalCalendar.LiturgicalFlags.AshWednesday;
+
+            DateTime startDate2 = LiturgicalCalendar.LiturgicalFlags.StartSecondOrdinaryTime;
+            DateTime endDate2 = LiturgicalCalendar.LiturgicalFlags.StartAdvent;
+
+            bool isOrdinary1 = CalendarCalculations.IsWithinDates( today, startDate1, endDate1 );
+            bool isOrdinary2 = CalendarCalculations.IsWithinDates( today, startDate2, endDate2 );
+
+            return ( isOrdinary1 || isOrdinary2 ) ;
         }
 
     }
