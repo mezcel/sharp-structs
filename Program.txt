@@ -45,11 +45,14 @@ namespace sharp_structs {
 
             // Display Calendar struct
 
-            dateDisplay = LiturgicalCalendar.LiturgicalFlags.StartAdvent.ToString("dddd, dd MMMM yyyy");
-            Console.WriteLine( "StartAdvent:\t\tDate: " + dateDisplay );
+            //dateDisplay = LiturgicalCalendar.LiturgicalFlags.Dec1.ToString("dddd, dd MMMM yyyy");
+            //Console.WriteLine( "Dec1:\t\t\tDate: " + dateDisplay );
 
             dateDisplay = LiturgicalCalendar.LiturgicalFlags.AdventSunday.ToString("dddd, dd MMMM yyyy");
             Console.WriteLine( "AdventSunday:\t\tDate: " + dateDisplay );
+
+            dateDisplay = LiturgicalCalendar.LiturgicalFlags.ImmaculateConception.ToString("dddd, dd MMMM yyyy");
+            Console.WriteLine( "Immaculate Conception:\tDate: " + dateDisplay );
 
             dateDisplay = LiturgicalCalendar.LiturgicalFlags.ChristmadDay.ToString("dddd, dd MMMM yyyy");
             Console.WriteLine( "ChristmadDay:\t\tDate: " + dateDisplay );
@@ -92,6 +95,12 @@ namespace sharp_structs {
 
             dateDisplay = LiturgicalCalendar.LiturgicalFlags.StartSecondOrdinaryTime.ToString("dddd, dd MMMM yyyy");
             Console.WriteLine( "StartSecondOrdinaryTime: Date: " + dateDisplay );
+
+            dateDisplay = LiturgicalCalendar.LiturgicalFlags.AllSaints.ToString("dddd, dd MMMM yyyy");
+            Console.WriteLine( "AllSaints:\t\tDate: " + dateDisplay );
+
+            dateDisplay = LiturgicalCalendar.LiturgicalFlags.AllSouls.ToString("dddd, dd MMMM yyyy");
+            Console.WriteLine( "AllSouls:\t\tDate: " + dateDisplay );
 
             Console.WriteLine( "" );
 
