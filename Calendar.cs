@@ -90,8 +90,8 @@ namespace sharp_structs {
             public static DateTime AshWednesday;
             public static DateTime Ascension;
             public static DateTime AscensionSunday;
-            public static DateTime Pentacost;
-            public static DateTime PentacostSunday;
+            public static DateTime Pentecost;
+            public static DateTime PentecostSunday;
             public static DateTime StartSecondOrdinaryTime;
         }
 
@@ -112,8 +112,8 @@ namespace sharp_structs {
             LiturgicalCalendar.LiturgicalFlags.AshWednesday     = LiturgicalCalendar.LiturgicalFlags.Easter.AddDays( -46 );
             LiturgicalCalendar.LiturgicalFlags.Ascension        = LiturgicalCalendar.LiturgicalFlags.Easter.AddDays( 39 );
             LiturgicalCalendar.LiturgicalFlags.AscensionSunday  = CalendarCalculations.NearestSunday( LiturgicalCalendar.LiturgicalFlags.Ascension );
-            LiturgicalCalendar.LiturgicalFlags.Pentacost        = LiturgicalCalendar.LiturgicalFlags.Easter.AddDays( 49 );
-            LiturgicalCalendar.LiturgicalFlags.PentacostSunday  = CalendarCalculations.NearestSunday( LiturgicalCalendar.LiturgicalFlags.Pentacost );
+            LiturgicalCalendar.LiturgicalFlags.Pentecost        = LiturgicalCalendar.LiturgicalFlags.Easter.AddDays( 49 );
+            LiturgicalCalendar.LiturgicalFlags.PentecostSunday  = CalendarCalculations.NearestSunday( LiturgicalCalendar.LiturgicalFlags.Pentecost );
             LiturgicalCalendar.LiturgicalFlags.StartSecondOrdinaryTime = LiturgicalCalendar.LiturgicalFlags.Easter.AddDays( 50 );
         }
         public static DateTime Easter( int year ) {
@@ -165,7 +165,7 @@ namespace sharp_structs {
         }
         public static bool IsEaster( DateTime today ) {
             DateTime startDate = LiturgicalCalendar.LiturgicalFlags.Easter;
-            DateTime endDate = LiturgicalCalendar.LiturgicalFlags.PentacostSunday;
+            DateTime endDate = LiturgicalCalendar.LiturgicalFlags.PentecostSunday;
 
             bool isEaster = CalendarCalculations.IsWithinDates( today, startDate, endDate );
 

@@ -84,11 +84,11 @@ namespace sharp_structs {
             dateDisplay = LiturgicalCalendar.LiturgicalFlags.AscensionSunday.ToString("dddd, dd MMMM yyyy");
             Console.WriteLine( "AscensionSunday:\tDate: " + dateDisplay );
 
-            dateDisplay = LiturgicalCalendar.LiturgicalFlags.Pentacost.ToString("dddd, dd MMMM yyyy");
-            Console.WriteLine( "Pentacost:\t\tDate: " + dateDisplay );
+            dateDisplay = LiturgicalCalendar.LiturgicalFlags.Pentecost.ToString("dddd, dd MMMM yyyy");
+            Console.WriteLine( "Pentecost:\t\tDate: " + dateDisplay );
 
-            dateDisplay = LiturgicalCalendar.LiturgicalFlags.PentacostSunday.ToString("dddd, dd MMMM yyyy");
-            Console.WriteLine( "PentacostSunday:\tDate: " + dateDisplay );
+            dateDisplay = LiturgicalCalendar.LiturgicalFlags.PentecostSunday.ToString("dddd, dd MMMM yyyy");
+            Console.WriteLine( "PentecostSunday:\tDate: " + dateDisplay );
 
             dateDisplay = LiturgicalCalendar.LiturgicalFlags.StartSecondOrdinaryTime.ToString("dddd, dd MMMM yyyy");
             Console.WriteLine( "StartSecondOrdinaryTime: Date: " + dateDisplay );
