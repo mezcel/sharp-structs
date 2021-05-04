@@ -123,7 +123,8 @@ sudo apt-get update; \
 
 ## Export as a packaged executable
 ```ps1
-dotnet publish --output "c:/temp/myapp" --runtime win-x64 --configuration Release -p:PublishSingleFile=true -p:PublishTrimmed=true --self-contained true
+## build and package within the project home directory
+dotnet publish --output "./" --runtime win-x64 --configuration Release -p:PublishSingleFile=true -p:PublishTrimmed=true --self-contained true
 ```
 
 ---
