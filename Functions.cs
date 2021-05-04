@@ -316,7 +316,7 @@ namespace sharp_structs {
             // Get Version details
             Version ver = os.Version;
 
-            Console.WriteLine("# Operating System Details");
+            Console.WriteLine("# Operating System Details");
             Console.WriteLine("\tMajor version:  " + ver.Major);
             Console.WriteLine("\tMajor Revision: " + ver.MajorRevision);
             Console.WriteLine("\tMinor version:  " + ver.Minor);
