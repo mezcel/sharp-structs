@@ -31,107 +31,104 @@ namespace sharp_structs {
             Console.ReadKey();
         }
 
+        static void DemoColorizeFeast( DateTime feastDay, string feastString ) {
+            string dateDisplay = feastDay.ToString("dddd,\tdd MMMM yyyy");
+
+            Console.ResetColor();
+
+            Console.Write( " " + dateDisplay + "\t" );
+            Console.ResetColor();
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine( feastString );
+            Console.ResetColor();
+
+        }
         static void DemoCalendar() {
 
-            string dateDisplay;
             DateTime today = DateTime.Now;
             Console.Clear();            // clear console
 
             Console.WriteLine( "# Demo: liturgical calendar flags\n" );
-            Console.WriteLine( "Liturgical year:\t" +  today + "\n" );
+            Console.WriteLine( " Liturgical year:\t" +  today + "\n" );
 
             // Populate struct calendar
             LiturgicalCalendar.PopulateLiturgicalFlags( today );
 
             // Display Calendar struct
 
-            dateDisplay = LiturgicalCalendar.LiturgicalFlags.ApostleStAndrew.ToString("dddd, dd MMMM yyyy");
-            Console.WriteLine( "ApostleStAndrew:\tDate: " + dateDisplay );
+            DemoColorizeFeast( LiturgicalCalendar.LiturgicalFlags.ApostleStAndrew, "Feast of St. Andrew the Apostle" );
+            DemoColorizeFeast( LiturgicalCalendar.LiturgicalFlags.AdventSunday, "First Sunday of Advent" );
+            DemoColorizeFeast( LiturgicalCalendar.LiturgicalFlags.ImmaculateConception, "Feast of the Immaculate Conception of Mary The Mother of God" );
+            DemoColorizeFeast( LiturgicalCalendar.LiturgicalFlags.ChristmasDay, "Christmas Day" );
+            //DemoColorizeFeast( LiturgicalCalendar.LiturgicalFlags.Dec31, "Dec31" );
+            DemoColorizeFeast( LiturgicalCalendar.LiturgicalFlags.SolemnityOfMary, "\tSolemnity Of Mary" );
+            DemoColorizeFeast( LiturgicalCalendar.LiturgicalFlags.Epiphany, "\tEpiphany" );
+            DemoColorizeFeast( LiturgicalCalendar.LiturgicalFlags.EpiphanySunday, "\tEpiphany Sunday" );
+            DemoColorizeFeast( LiturgicalCalendar.LiturgicalFlags.Baptism, "\tBaptism" );
+            DemoColorizeFeast( LiturgicalCalendar.LiturgicalFlags.StartFirstOrdinaryTime, "\tStart of 1st Ordinary Time" );
+            DemoColorizeFeast( LiturgicalCalendar.LiturgicalFlags.AshWednesday, "Ash Wednesday" );
+            DemoColorizeFeast( LiturgicalCalendar.LiturgicalFlags.Easter, "\tEaster" );
+            DemoColorizeFeast( LiturgicalCalendar.LiturgicalFlags.Ascension, "\tAscension" );
+            DemoColorizeFeast( LiturgicalCalendar.LiturgicalFlags.AscensionSunday, "\tAscension Sunday" );
+            DemoColorizeFeast( LiturgicalCalendar.LiturgicalFlags.Pentecost, "\tPentecost" );
+            DemoColorizeFeast( LiturgicalCalendar.LiturgicalFlags.PentecostSunday, "\tPentecost Sunday" );
+            DemoColorizeFeast( LiturgicalCalendar.LiturgicalFlags.StartSecondOrdinaryTime, "\tStart of 2nd Ordinary Time" );
+            DemoColorizeFeast( LiturgicalCalendar.LiturgicalFlags.AllSaints, "All Saints Day" );
+            DemoColorizeFeast( LiturgicalCalendar.LiturgicalFlags.AllSouls, "All Souls Day" );
 
-            dateDisplay = LiturgicalCalendar.LiturgicalFlags.AdventSunday.ToString("dddd, dd MMMM yyyy");
-            Console.WriteLine( "AdventSunday:\t\tDate: " + dateDisplay );
+            Console.WriteLine( "\n# Liturgical Seasons:\n" );
 
-            dateDisplay = LiturgicalCalendar.LiturgicalFlags.ImmaculateConception.ToString("dddd, dd MMMM yyyy");
-            Console.WriteLine( "Immaculate Conception:\tDate: " + dateDisplay );
+	        //Console.BackgroundColor = ConsoleColor.Black;
 
-            dateDisplay = LiturgicalCalendar.LiturgicalFlags.ChristmadDay.ToString("dddd, dd MMMM yyyy");
-            Console.WriteLine( "ChristmadDay:\t\tDate: " + dateDisplay );
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.Write( "IsAdvent:\t" );
+            Console.ResetColor();
+            Console.WriteLine( LiturgicalCalendar.LiturgicalFlags.IsAdvent );
 
-            dateDisplay = LiturgicalCalendar.LiturgicalFlags.Dec31.ToString("dddd, dd MMMM yyyy");
-            Console.WriteLine( "Dec31:\t\t\tDate: " + dateDisplay );
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.Write( "IsChristmas:\t" );
+            Console.ResetColor();
+            Console.WriteLine( LiturgicalCalendar.LiturgicalFlags.IsChristmas );
 
-            dateDisplay = LiturgicalCalendar.LiturgicalFlags.SolemnityOfMary.ToString("dddd, dd MMMM yyyy");
-            Console.WriteLine( "SolemnityOfMary:\tDate: " + dateDisplay );
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.Write( "IsLent:\t\t" );
+            Console.ResetColor();
+            Console.WriteLine( LiturgicalCalendar.LiturgicalFlags.IsLent );
 
-            dateDisplay = LiturgicalCalendar.LiturgicalFlags.Epiphany.ToString("dddd, dd MMMM yyyy");
-            Console.WriteLine( "Epiphany:\t\tDate: " + dateDisplay );
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.Write( "IsEaster:\t" );
+            Console.ResetColor();
+            Console.WriteLine( LiturgicalCalendar.LiturgicalFlags.IsEaster );
 
-            dateDisplay = LiturgicalCalendar.LiturgicalFlags.EpiphanySunday.ToString("dddd, dd MMMM yyyy");
-            Console.WriteLine( "EpiphanySunday:\t\tDate: " + dateDisplay );
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.Write( "IsOrdinary:\t" );
+            Console.ResetColor();
+            Console.WriteLine( LiturgicalCalendar.LiturgicalFlags.IsOrdinary );
 
-            dateDisplay = LiturgicalCalendar.LiturgicalFlags.Baptism.ToString("dddd, dd MMMM yyyy");
-            Console.WriteLine( "Baptism:\t\tDate: " + dateDisplay );
-
-            dateDisplay = LiturgicalCalendar.LiturgicalFlags.StartFirstOrdinaryTime.ToString("dddd, dd MMMM yyyy");
-            Console.WriteLine( "StartFirstOrdinaryTime: Date: " + dateDisplay );
-
-            dateDisplay = LiturgicalCalendar.LiturgicalFlags.AshWednesday.ToString("dddd, dd MMMM yyyy");
-            Console.WriteLine( "AshWednesday:\t\tDate: " + dateDisplay );
-
-            dateDisplay = LiturgicalCalendar.LiturgicalFlags.Easter.ToString("dddd, dd MMMM yyyy");
-            Console.WriteLine( "Easter:\t\t\tDate: " + dateDisplay );
-
-            dateDisplay = LiturgicalCalendar.LiturgicalFlags.Ascension.ToString("dddd, dd MMMM yyyy");
-            Console.WriteLine( "Ascension:\t\tDate: " + dateDisplay );
-
-            dateDisplay = LiturgicalCalendar.LiturgicalFlags.AscensionSunday.ToString("dddd, dd MMMM yyyy");
-            Console.WriteLine( "AscensionSunday:\tDate: " + dateDisplay );
-
-            dateDisplay = LiturgicalCalendar.LiturgicalFlags.Pentecost.ToString("dddd, dd MMMM yyyy");
-            Console.WriteLine( "Pentecost:\t\tDate: " + dateDisplay );
-
-            dateDisplay = LiturgicalCalendar.LiturgicalFlags.PentecostSunday.ToString("dddd, dd MMMM yyyy");
-            Console.WriteLine( "PentecostSunday:\tDate: " + dateDisplay );
-
-            dateDisplay = LiturgicalCalendar.LiturgicalFlags.StartSecondOrdinaryTime.ToString("dddd, dd MMMM yyyy");
-            Console.WriteLine( "StartSecondOrdinaryTime: Date: " + dateDisplay );
-
-            dateDisplay = LiturgicalCalendar.LiturgicalFlags.AllSaints.ToString("dddd, dd MMMM yyyy");
-            Console.WriteLine( "AllSaints:\t\tDate: " + dateDisplay );
-
-            dateDisplay = LiturgicalCalendar.LiturgicalFlags.AllSouls.ToString("dddd, dd MMMM yyyy");
-            Console.WriteLine( "AllSouls:\t\tDate: " + dateDisplay );
-
-            Console.WriteLine( "" );
-
-            Console.WriteLine( "IsAdvent:\t" + LiturgicalCalendar.IsAdvent( today ) );
-            Console.WriteLine( "IsChristmas:\t" + LiturgicalCalendar.IsChristmas( today ) );
-            Console.WriteLine( "IsLent:\t\t" + LiturgicalCalendar.IsLent( today ) );
-            Console.WriteLine( "IsEaster:\t" + LiturgicalCalendar.IsEaster( today ) );
-            Console.WriteLine( "IsOrdinary:\t" + LiturgicalCalendar.IsOrdinary( today ) );
-
+            Console.ResetColor();
             Console.WriteLine( "\nPress any key to continue." );
             Console.ReadKey();
         }
 
         static void UILoop() {
-            int i = CalendarCalculations.InitialMystery();
+            int i;
 
-            //Console.WriteLine( "\nPress any key to continue." );
-            //Console.ReadKey();
-            RenderDisplay.DisplayAbout();
+            i = CalendarCalculations.InitialMystery();  // Start position based on the today's date
+            RenderDisplay.DisplayAbout();               // Display initial about info
 
             while ( i <= ERClass.RosaryBead.structRecords.Length ) {
-                Console.Clear();        // clear console
+                Console.Clear();                        // clear console
 
-                RenderDisplay.UpdateMainView( i );
-                RenderDisplay.DisplayView();
+                RenderDisplay.UpdateMainView( i );      // Populate view struct with new query data
+                RenderDisplay.DisplayView();            // render console display text
 
-                i = UserInput.KeyNavigation(i);
+                i = UserInput.KeyNavigation(i);         // prompt for UI input, update to next position
             }
         }
 
-        static void Main(string[] args) {
+        static void Greeter() {
+
+            Console.ForegroundColor = ConsoleColor.Cyan;
             Console.Clear();            // clear console
 
             Console.WriteLine( "## ################# ##");
@@ -139,15 +136,16 @@ namespace sharp_structs {
             Console.WriteLine( "## ################# ##");
             Console.WriteLine( "");
 
-            //MyFunctions.GetOsInfo();         // display OS info
+            Console.ResetColor();
+        }
+
+        static void Main(string[] args) {
+            Greeter();                       // Splash/header text
+            //MyFunctions.GetOsInfo();       // display OS info
             MyFunctions.ImportCsvDatabase(); // import csv files into a struct ER DB
-            DemoPreviewDB();
-
-            //Console.Clear();            // clear console
-            DemoCalendar();
-
-            UILoop(); // Main application UI Loop
-
+            DemoPreviewDB();                 // Display loaded database info
+            DemoCalendar();                  // Display liturgical calendar dates
+            UILoop();                        // Main application UI Loop
         }
     }
 }

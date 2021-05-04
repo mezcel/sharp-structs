@@ -77,10 +77,11 @@ namespace sharp_structs {
     public class LiturgicalCalendar {
         public struct LiturgicalFlags {
             public static int year;
+            public static bool IsAdvent, IsChristmas, IsLent, IsEaster, IsOrdinary;
             public static DateTime ApostleStAndrew;
             public static DateTime ImmaculateConception;
             public static DateTime AdventSunday;
-            public static DateTime ChristmadDay;
+            public static DateTime ChristmasDay;
             public static DateTime Dec31;
             public static DateTime SolemnityOfMary;
             public static DateTime Epiphany;
@@ -106,12 +107,12 @@ namespace sharp_structs {
             LiturgicalCalendar.LiturgicalFlags.ApostleStAndrew  = new DateTime( LiturgicalCalendar.LiturgicalFlags.year - 1, 11, 30);
             LiturgicalCalendar.LiturgicalFlags.AdventSunday     = CalendarCalculations.NearestSunday( LiturgicalCalendar.LiturgicalFlags.ApostleStAndrew );
             LiturgicalCalendar.LiturgicalFlags.ImmaculateConception = new DateTime( LiturgicalCalendar.LiturgicalFlags.year - 1, 12, 6);
-            LiturgicalCalendar.LiturgicalFlags.ChristmadDay     = new DateTime( LiturgicalCalendar.LiturgicalFlags.year - 1, 12, 25);
+            LiturgicalCalendar.LiturgicalFlags.ChristmasDay     = new DateTime( LiturgicalCalendar.LiturgicalFlags.year - 1, 12, 25);
             LiturgicalCalendar.LiturgicalFlags.Dec31            = new DateTime( LiturgicalCalendar.LiturgicalFlags.year - 1, 12, 31);
 
             // this year
             LiturgicalCalendar.LiturgicalFlags.SolemnityOfMary  = new DateTime( LiturgicalCalendar.LiturgicalFlags.year, 1, 1);
-            LiturgicalCalendar.LiturgicalFlags.Epiphany         = LiturgicalCalendar.LiturgicalFlags.ChristmadDay.AddDays( 12 );
+            LiturgicalCalendar.LiturgicalFlags.Epiphany         = LiturgicalCalendar.LiturgicalFlags.ChristmasDay.AddDays( 12 );
             LiturgicalCalendar.LiturgicalFlags.EpiphanySunday   = CalendarCalculations.NearestSunday( LiturgicalCalendar.LiturgicalFlags.Epiphany );
             LiturgicalCalendar.LiturgicalFlags.Baptism          = LiturgicalCalendar.LiturgicalFlags.EpiphanySunday.AddDays( 7 );
             LiturgicalCalendar.LiturgicalFlags.StartFirstOrdinaryTime = LiturgicalCalendar.LiturgicalFlags.Baptism.AddDays( 1 );
@@ -124,6 +125,12 @@ namespace sharp_structs {
             LiturgicalCalendar.LiturgicalFlags.StartSecondOrdinaryTime = LiturgicalCalendar.LiturgicalFlags.Easter.AddDays( 50 );
             LiturgicalCalendar.LiturgicalFlags.AllSaints        = new DateTime( LiturgicalCalendar.LiturgicalFlags.year, 11, 1);
             LiturgicalCalendar.LiturgicalFlags.AllSouls         = new DateTime( LiturgicalCalendar.LiturgicalFlags.year, 11, 2);
+
+            LiturgicalCalendar.LiturgicalFlags.IsAdvent     = IsAdvent( inputDate );
+            LiturgicalCalendar.LiturgicalFlags.IsChristmas  = IsChristmas( inputDate );
+            LiturgicalCalendar.LiturgicalFlags.IsLent       = IsLent( inputDate );
+            LiturgicalCalendar.LiturgicalFlags.IsEaster     = IsEaster( inputDate );
+            LiturgicalCalendar.LiturgicalFlags.IsOrdinary   = IsOrdinary( inputDate );
         }
         public static DateTime Easter( int year ) {
             int a, b, c, d, e, f, g, h, i, k, l, m, month, day;

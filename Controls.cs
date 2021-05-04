@@ -44,6 +44,14 @@ namespace sharp_structs {
             ERView.meditationPoint_t.mysteryPercent   = ERClass.RosaryBead.structRecords[rosaryBeadID].mysteryPercent;
         }
 
+        static void ColoredMeditationInfo( string label, string meta) {
+            Console.ResetColor();
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.Write( label  );
+            Console.ResetColor();
+            Console.WriteLine( meta );
+        }
+
         public static void DisplayView() {
 
             string mysteryName  = ERView.meditationPoint_t.mysteryName;
@@ -74,15 +82,37 @@ namespace sharp_structs {
 					break;
             }
 
-            Console.WriteLine( "Decade:\t\t"    + decadeName );
-            Console.WriteLine( "Fruit:\t\t"     + mesageText );
-            Console.WriteLine( "Info:\t\t"      + decadeInfo + "\n" );
-            Console.WriteLine( "Scripture:\t"   + scriptureText + "\n");
-            Console.WriteLine( "Prayer:\t\t"    + prayerText );
-
+            ColoredMeditationInfo( "Decade:\t\t" , decadeName );
+            ColoredMeditationInfo( "Fruit:\t\t" , mesageText );
+            ColoredMeditationInfo( "Info:\t\t" , decadeInfo );
+            Console.WriteLine( "\n" );
+            ColoredMeditationInfo( "Scripture:\t" , scriptureText );
+            Console.WriteLine( "\n" );
+            ColoredMeditationInfo( "Prayer:\t\t" , prayerText );
             Console.WriteLine( "" );
-            Console.WriteLine( loopBodyString + String.Format("{0:0.##}", smallbeadPercent) + " %\tBead:\t " + beadType );
-            Console.WriteLine( "Rosary Progress:\t" + String.Format("{0:0.##}", mysteryPercent) + " %\tMystery: " + mysteryName );
+
+            // Progress info
+            Console.ResetColor();
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.Write( loopBodyString );
+            Console.ResetColor();
+            Console.Write( String.Format( "{0:0.##}", smallbeadPercent ) + " %\t" );
+
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.Write( "Bead:\t " );
+            Console.ResetColor();
+            Console.Write( beadType + "\n");
+
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.Write( "Rosary Progress:\t" );
+            Console.ResetColor();
+            Console.Write( String.Format( "{0:0.##}", mysteryPercent ) + " %\t" );
+
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.Write( "Mystery: " );
+            Console.ResetColor();
+            Console.Write( mysteryName );
+            Console.ResetColor();
         }
 
         public static void DisplayAbout() {
@@ -93,20 +123,28 @@ namespace sharp_structs {
             DateTime today = DateTime.Now;
             string todaysMystery = CalendarCalculations.TodaysMysteryName( today );
 
+            Console.ResetColor();
             Console.Clear();            // clear console
 
+            Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine( " About:" );
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine( about );
             Console.WriteLine( "" );
 
+            Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine( " Controls:" );
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine( vimKeys );
             Console.WriteLine( "" );
 
+            Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine( " Date:" );
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine( "\t\tThe day of the week for {0:d} is {1}.", today.DayOfWeek, today.DayOfWeek );
             Console.WriteLine( "\t\t" + today.ToString("dddd, dd MMMM yyyy") );
             Console.WriteLine( "\t\tMystery of the day: " + todaysMystery );
+            Console.ResetColor();
 
             Console.WriteLine( "\nPress any key to continue." );
             Console.ReadKey();
@@ -122,7 +160,9 @@ namespace sharp_structs {
 
 			switch( keyString ) {
 				case "q" or "Q" or "Escape" :                               // Quit Application
-                    Console.WriteLine( "\n\t_Terminated Application." );
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine( "\n\n\t_Terminated Application.\n" );
+                    Console.ResetColor();
                     Environment.Exit(0);
 					break;
                 case "l" or "L" or "Enter" or "RightArrow" or "Spacebar":   // Next
