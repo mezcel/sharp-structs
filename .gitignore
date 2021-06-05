@@ -1,6 +1,7 @@
 ## .gitignore
 
 #.vscode/*
+.vs
 bin/*
 obj/*
 PPDATA/*
