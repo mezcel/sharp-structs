@@ -192,12 +192,14 @@ namespace sharp_structs {
             DateTime endDate1 = LiturgicalCalendar.LiturgicalFlags.AshWednesday;
 
             DateTime startDate2 = LiturgicalCalendar.LiturgicalFlags.StartSecondOrdinaryTime;
-            DateTime endDate2 = LiturgicalCalendar.LiturgicalFlags.ApostleStAndrew;
+            DateTime endDate2 = CalendarCalculations.NearestSunday(  new DateTime( LiturgicalCalendar.LiturgicalFlags.year, 11, 30) ); // ApostleStAndrew this year
 
             bool isOrdinary1 = CalendarCalculations.IsWithinDates( today, startDate1, endDate1 );
             bool isOrdinary2 = CalendarCalculations.IsWithinDates( today, startDate2, endDate2 );
 
-            return ( isOrdinary1 || isOrdinary2 ) ;
+            bool isOrdinary  = ( isOrdinary1 || isOrdinary2 );
+
+            return isOrdinary ;
         }
 
     }
