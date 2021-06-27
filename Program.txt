@@ -13,7 +13,10 @@ namespace sharp_structs {
         static void DemoPreviewDB() {
             //Console.Clear();            // clear console
 
+            Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine( "\n# Demo: Preview DB class size and attribute count\n" );
+            Console.ResetColor();
+
             Console.WriteLine( " class array        \trecords\tfields" );
             Console.WriteLine( " -------------------\t-------\t------" );
 
@@ -27,7 +30,9 @@ namespace sharp_structs {
             Console.WriteLine( " ERClass.Scripture\t" + ERClass.Scripture.structRecords.Length + "\t " + ERClass.Scripture.attributeNames.Length );
             Console.WriteLine( " ERClass.Feast\t\t"   + ERClass.Feast.structRecords.Length + "\t " + ERClass.Feast.attributeNames.Length );
 
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.WriteLine( "\nPress any key to continue." );
+            Console.ResetColor();
             Console.ReadKey();
         }
 
@@ -43,12 +48,15 @@ namespace sharp_structs {
             Console.ResetColor();
 
         }
+
         static void DemoCalendar() {
 
             DateTime today = DateTime.Now;
             Console.Clear();            // clear console
 
+            Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine( "# Demo: liturgical calendar flags\n" );
+            Console.ResetColor();
             Console.WriteLine( " Liturgical year:\t" +  today + "\n" );
 
             // Populate struct calendar
@@ -76,37 +84,56 @@ namespace sharp_structs {
             DemoColorizeFeast( LiturgicalCalendar.LiturgicalFlags.AllSaints, "All Saints Day" );
             DemoColorizeFeast( LiturgicalCalendar.LiturgicalFlags.AllSouls, "All Souls Day" );
 
+            Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine( "\n# Liturgical Seasons:\n" );
+            Console.ResetColor();
 
 	        //Console.BackgroundColor = ConsoleColor.Black;
 
             Console.ForegroundColor = ConsoleColor.Magenta;
-            Console.Write( "IsAdvent:\t" );
+            Console.Write( " Advent Season:\t\t" );
             Console.ResetColor();
+            if ( LiturgicalCalendar.LiturgicalFlags.IsAdvent ) {
+				Console.ForegroundColor = ConsoleColor.Cyan;
+            }
             Console.WriteLine( LiturgicalCalendar.LiturgicalFlags.IsAdvent );
 
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.Write( "IsChristmas:\t" );
+            Console.Write( " Christmas Season:\t" );
             Console.ResetColor();
+            if ( LiturgicalCalendar.LiturgicalFlags.IsChristmas ) {
+				Console.ForegroundColor = ConsoleColor.Cyan;
+            }
             Console.WriteLine( LiturgicalCalendar.LiturgicalFlags.IsChristmas );
 
             Console.ForegroundColor = ConsoleColor.Magenta;
-            Console.Write( "IsLent:\t\t" );
+            Console.Write( " Lent Season:\t\t" );
             Console.ResetColor();
+            if ( LiturgicalCalendar.LiturgicalFlags.IsLent ) {
+				Console.ForegroundColor = ConsoleColor.Cyan;
+            }
             Console.WriteLine( LiturgicalCalendar.LiturgicalFlags.IsLent );
 
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.Write( "IsEaster:\t" );
+            Console.Write( " Easter Season:\t\t" );
             Console.ResetColor();
+            if ( LiturgicalCalendar.LiturgicalFlags.IsEaster ) {
+				Console.ForegroundColor = ConsoleColor.Cyan;
+            }
             Console.WriteLine( LiturgicalCalendar.LiturgicalFlags.IsEaster );
 
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.Write( "IsOrdinary:\t" );
+            Console.Write( " Ordinary Time:\t\t" );
             Console.ResetColor();
+            if ( LiturgicalCalendar.LiturgicalFlags.IsOrdinary ) {
+				Console.ForegroundColor = ConsoleColor.Cyan;
+            }
             Console.WriteLine( LiturgicalCalendar.LiturgicalFlags.IsOrdinary );
 
             Console.ResetColor();
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.WriteLine( "\nPress any key to continue." );
+            Console.ResetColor();
             Console.ReadKey();
         }
 

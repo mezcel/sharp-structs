@@ -47,6 +47,7 @@ namespace sharp_structs {
 				csvLineCount++;
 			}
 		}
+
 		public static void Bead( string path ) {
 
 			int csvLineCount  = 0;
@@ -389,6 +390,10 @@ namespace sharp_structs {
 			string path, csvName;
             DateTime t0, t1;
             TimeSpan tDiffSum, tDiff;
+
+            Console.ForegroundColor = ConsoleColor.Magenta;
+			Console.WriteLine( "\n#  Demo: CSV Database Import\n" );
+            Console.ResetColor();
 
             t0 = t1 = DateTime.Now;
             tDiff    = t1 - t0;

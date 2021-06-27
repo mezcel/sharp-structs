@@ -118,13 +118,20 @@ namespace sharp_structs {
         public static void DisplayAbout() {
             string about = "\t\tThis program is a scripture rosary for the command line interface ( CLI ).\n\t\tThis app reads from a scripture database arranged in an ER schema.\n\t\tEnglish readings are quoted from The New American Bible ( CSV files ).";
 
-            string vimKeys = "\t\tUse vim keys to navigate.\n\t\tUse h/l for backwards and forward.\n\t\tUse j/k to display help.\n\t\tUse Esc key to quit.";
+            string vimKeys = "\t\tUse vim keys to navigate.\n\t\tUse h/l for backwards and forward.\n\t\tUse j/k to display help.\n\t\tUse Esc or 'q' key to quit.";
 
             DateTime today = DateTime.Now;
             string todaysMystery = CalendarCalculations.TodaysMysteryName( today );
 
             Console.ResetColor();
             Console.Clear();            // clear console
+
+            Console.ResetColor();
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine( "## ############# ##" );
+            Console.WriteLine( "## Instructions  ##" );
+            Console.WriteLine( "## ############# ##\n" );
+            Console.ResetColor();
 
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine( " About:" );
@@ -146,7 +153,9 @@ namespace sharp_structs {
             Console.WriteLine( "\t\tMystery of the day: " + todaysMystery );
             Console.ResetColor();
 
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.WriteLine( "\nPress any key to continue." );
+            Console.ResetColor();
             Console.ReadKey();
         }
 
